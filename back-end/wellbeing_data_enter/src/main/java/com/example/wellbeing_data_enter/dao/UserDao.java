@@ -1,2 +1,10 @@
-package com.example.wellbeing_data_enter.dao;public class UserDao {
+package com.example.wellbeing_data_enter.dao;
+
+import com.example.wellbeing_data_enter.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface UserDao extends JpaRepository<User, Long> {
+    Optional<User> findByEmail(String email);
 }

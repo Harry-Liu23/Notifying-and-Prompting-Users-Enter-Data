@@ -1,44 +1,55 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
-import { tailwind } from 'tailwindcss-react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignIn = () => {
-    // You would replace this with actual sign-in logic such as an API call
-    if (email === '' || password === '') {
-      Alert.alert('Error', 'Please fill in all fields');
-    } else {
-      // Simulate successful sign-in
-      Alert.alert('Success', `Signed in as ${email}`);
-    }
+    fetch('http://your-backend-server-url/api/auth/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then(async (data) => {
+        if (data.success) {
+          Alert.alert('Sign-in successful!');
+          // Store JWT Token
+          await AsyncStorage.setItem('token', data.token);
+          // Navigate to home or dashboard screen
+          navigation.navigate('Home');
+        } else {
+          Alert.alert('Sign-in failed', data.message);
+        }
+      })
+      .catch((error) => {
+        Alert.alert('Error', 'An error occurred during sign-in.');
+      });
   };
 
   return (
-    <View style={tailwind('flex-1 justify-center p-4 bg-white')}>
-      <Text style={tailwind('text-2xl font-bold mb-6 text-center')}>Sign In</Text>
-
-      <Text style={tailwind('text-lg mb-2')}>Email:</Text>
+    <View style={{ padding: 20 }}>
+      <Text>Sign In</Text>
       <TextInput
-        style={tailwind('h-10 border border-gray-400 px-2 mb-4 rounded')}
-        placeholder="Enter your email"
+        placeholder="Email"
         value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
+        onChangeText={(text) => setEmail(text)}
+        style={{ marginBottom: 10, padding: 10, borderWidth: 1 }}
       />
-
-      <Text style={tailwind('text-lg mb-2')}>Password:</Text>
       <TextInput
-        style={tailwind('h-10 border border-gray-400 px-2 mb-4 rounded')}
-        placeholder="Enter your password"
+        placeholder="Password"
         value={password}
-        onChangeText={setPassword}
+        onChangeText={(text) => setPassword(text)}
         secureTextEntry
+        style={{ marginBottom: 10, padding: 10, borderWidth: 1 }}
       />
-
       <Button title="Sign In" onPress={handleSignIn} />
     </View>
   );

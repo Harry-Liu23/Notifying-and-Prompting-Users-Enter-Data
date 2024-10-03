@@ -1,3 +1,5 @@
+package com.example.wellbeing_data_enter.security.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
