@@ -1,35 +1,63 @@
+import React, { useState, useEffect } from 'react';
 import { Share, StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
-import React, { useState } from 'react';
 import * as FileSystem from 'expo-file-system';
-
+import { createTable, saveDataToDB, getAllRecords } from '../../database.js';
 
 const Record = () => {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [input3, setInput3] = useState('');
 
-  const saveDataToFile = async () => {
-    try {
-      const data = `Mood: ${input1}\nWater Intake: ${input2}\nOther: ${input3}`;
-      const path = `${FileSystem.documentDirectory}recordData.txt`;
-  
-      await FileSystem.writeAsStringAsync(path, data);
-      Alert.alert('Success', 'Data saved to file successfully!');
-      return path;
-    } catch (err) {
-      console.log(err);
-      Alert.alert('Error', 'Failed to save data to file.');
+  useEffect(() => {
+    // Create the table when the app loads
+    createTable();
+  }, []);
+
+  const saveData = () => {
+    if (input1 || input2 || input3) {
+      saveDataToDB(input1, input2, input3,
+        () => {
+          Alert.alert('Success', 'Data saved successfully!');
+          setInput1('');
+          setInput2('');
+          setInput3('');
+        },
+        (error) => {
+          console.log(error);
+          Alert.alert('Error', 'Failed to save data.');
+        }
+      );
+    } else {
+      Alert.alert('Error', 'Please provide some data to save.');
     }
+  };
+
+  const generateFileFromDB = async () => {
+    return new Promise((resolve, reject) => {
+      getAllRecords(async (records) => {
+        let data = 'Mood,Water Intake,Other\n';
+        records.forEach(record => {
+          data += `${record.mood},${record.waterIntake},${record.other}\n`;
+        });
+
+        try {
+          const path = `${FileSystem.documentDirectory}recordData.txt`;
+          await FileSystem.writeAsStringAsync(path, data);
+          resolve(path);
+        } catch (err) {
+          reject(err);
+        }
+      });
+    });
   };
 
   const exportFile = async () => {
     try {
-      const filePath = await saveDataToFile();
+      const filePath = await generateFileFromDB();
       if (filePath) {
-        // Use Share API to share the file
         await Share.share({
-          message: `Sharing data file located at: ${filePath}`, // Message to share
-          url: filePath, // File path to share
+          message: `Sharing data file located at: ${filePath}`,
+          url: filePath,
         });
       }
     } catch (err) {
@@ -45,7 +73,7 @@ const Record = () => {
       <Text style={styles.label}>Enter Your Mood here:</Text>
       <TextInput
         style={styles.input}
-        placeholder="Enter first input"
+        placeholder="Enter mood"
         value={input1}
         onChangeText={setInput1}
       />
@@ -53,19 +81,20 @@ const Record = () => {
       <Text style={styles.label}>Enter your water intake:</Text>
       <TextInput
         style={styles.input}
-        placeholder="Enter second input"
+        placeholder="Enter water intake"
         value={input2}
         onChangeText={setInput2}
       />
 
-      <Text style={styles.label}>I'm running out of things to talk about:</Text>
+      <Text style={styles.label}>Other:</Text>
       <TextInput
         style={styles.input}
-        placeholder="Enter third input"
+        placeholder="Enter other info"
         value={input3}
         onChangeText={setInput3}
       />
-      
+
+      <Button title="Save" onPress={saveData} />
       <Button title="Export" onPress={exportFile} />
     </View>
   );
