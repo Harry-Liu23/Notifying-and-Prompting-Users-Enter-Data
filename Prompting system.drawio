@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.0">
+  <diagram name="Page-1" id="H9P_-qq9wg3WAOkpcyzz">
+    <mxGraphModel dx="2333" dy="1264" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="q0iDizheb-PmmOYjfkxu-1" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Throughout the entire day, there is a gap of around 1 hour (depending on the measurement mentioned below), defaulting from 10 in the morning to 8 in the evening.&lt;/font&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;(10 hours in total, however, have the user choose from when to when)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="70" width="300" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-3" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="q0iDizheb-PmmOYjfkxu-1" target="q0iDizheb-PmmOYjfkxu-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1030" y="125" as="sourcePoint" />
+            <mxPoint x="1120" y="135" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-5" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Benefits:&lt;/font&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;1. Avoid prompting at users&#39; rest time&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;2. A relatively loose time intervals would not pressure the user too much.&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Things to measure here:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;1.Reaction Presence: Whether recipient will react to an interruption&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="85" width="230" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-7" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Prompt when the user first picks up the phone.&lt;/font&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;E.g. when user turn their screen on after closing it for a while.&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="990" y="327.5" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-8" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="q0iDizheb-PmmOYjfkxu-1" target="q0iDizheb-PmmOYjfkxu-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1030" y="145" as="sourcePoint" />
+            <mxPoint x="1144" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-9" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Benefits:&lt;/font&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;1. Avoid interrupting user at their leisure time&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;2.&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Attention Focus&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;: The user is likely already focused on their phone&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Things to measure here:&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;div&gt;Sentiment: Recipient&#39;s attitude when receiving interruption&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Time to reaction:&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;How long does it take for recipient to react after being prompt&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="335" width="230" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-10" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.022;entryY=0.306;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="1" source="q0iDizheb-PmmOYjfkxu-7" target="q0iDizheb-PmmOYjfkxu-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1251" y="339" as="sourcePoint" />
+            <mxPoint x="1144" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-11" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Prompt when the user is on certain types of applications (social media and leisure apps&amp;nbsp;&lt;/font&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;such as games or other video platforms)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="327.5" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-12" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="q0iDizheb-PmmOYjfkxu-1" target="q0iDizheb-PmmOYjfkxu-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="900" y="205" as="sourcePoint" />
+            <mxPoint x="1065" y="295" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-13" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Benefits:&lt;/font&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;1. Interrupting user at their leisure time, since they are in leisure time, they may be ok with taking 1&amp;nbsp; minute to enter data&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;2.&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Attention Focus&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;: The user is likely already focused on their phone&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Things to measure here:&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;div&gt;Sentiment: Recipient&#39;s attitude when receiving interruption&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Time to reaction:&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;How long does it take for recipient to react after being prompt&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="285" width="230" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-14" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="q0iDizheb-PmmOYjfkxu-11" target="q0iDizheb-PmmOYjfkxu-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="900" y="205" as="sourcePoint" />
+            <mxPoint x="775" y="295" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-15" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;When To Prompt&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="805" y="40" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-16" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Clicking the prompt takes user to a pop-up window with input fields&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="685" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-17" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;How To Enter Data&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="790" y="505" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-18" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Clicking the prompt takes user to the main interface/main page of the app&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="990" y="685" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-19" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Both of these are available at the same time, user can enter data either way.&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="575" width="230" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-20" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="q0iDizheb-PmmOYjfkxu-19" target="q0iDizheb-PmmOYjfkxu-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="355" as="sourcePoint" />
+            <mxPoint x="500" y="355" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-21" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="q0iDizheb-PmmOYjfkxu-19" target="q0iDizheb-PmmOYjfkxu-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="365" as="sourcePoint" />
+            <mxPoint x="510" y="365" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-22" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;A pop-up at the time the user picks up the phone, whilst the user not clicking on the prompt of another app. This happens regardless of whether the user clicks the prompt of the app or not.&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;This takes user to a pop-up window with input fields&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="755" y="885" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="q0iDizheb-PmmOYjfkxu-23" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;Or&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="825" width="230" height="65" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
