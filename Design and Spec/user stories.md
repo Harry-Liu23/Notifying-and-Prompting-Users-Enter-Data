@@ -14,7 +14,7 @@ As a busy graphic designer, Emma often finds herself absorbed in creative projec
 
 **Expectation:**
 
-Emma expects the app to send her a gentle prompt asking her to rate her mood whenever she unlocks her phone after a break, such as when she steps away for lunch or after a design sprint. She appreciates that this timing fits seamlessly into her routine, allowing her to easily log her feelings without disrupting her workflow. Emma also hopes to see visual feedback over time, helping her correlate her mood with work output and personal life events.
+Emma expects the app to send a prompt asking her to rate her mood whenever she unlocks her phone after a break, such as when she steps away for lunch or after work. She appreciates that this timing fits seamlessly into her routine, allowing her to easily log her feelings without disrupting her workflow. Emma also hopes to see visual feedback over time, helping her correlate her mood with work output and personal life events.
 
 **User Story 2: Hydration Reminder**
 
@@ -33,7 +33,7 @@ Mark leads a fast-paced life managing multiple projects and teams. He often forg
 
 **Expectation:**
 
-He anticipates that the app will prompt him to log his water intake each time he unlocks his phone in the afternoon after he’s finished a busy morning of meetings. This gentle nudge should feel like a supportive reminder rather than an annoying interruption. Mark hopes to see progress tracking within the app, encouraging him to reach his hydration targets consistently and possibly linking to a health dashboard for overall wellness insights.
+He anticipates that the app will prompt him to log his water intake each time he unlocks his phone in the afternoon after he’s finished a busy morning of meetings. This should feel like a supportive reminder rather than an annoying interruption. Mark hopes to see progress tracking within the app, encouraging him to reach his hydration targets consistently and possibly linking to a health dashboard for overall wellness insights.
 
 **User Story 3: Stress Level Tracker**
 
@@ -47,8 +47,8 @@ Age: 40
 
 **Story:**
 
-Sarah experiences varying levels of stress due to her demanding teaching schedule and the emotional labor of supporting her students. She wants to monitor her stress levels to develop better coping strategies and improve her mental health over time.
+Sarah experiences varying levels of stress due to her demanding teaching schedule and the emotional labor of supporting her students. She wants to monitor her stress levels to develop better-coping strategies and improve her mental health over time.
 
 **Expectation:**
 
-Sarah expects the app to prompt her to enter her stress levels after significant breaks in her teaching day, such as after lunch or a planning period. She wants this to be a brief, unobtrusive reminder that helps her pause and reflect on her mental state. Sarah hopes the app will provide insights into her stress patterns, showing how her workload, student interactions, and personal time impact her well-being, ultimately helping her balance her professional responsibilities and self-care more effectively.
+Sarah expects the app to prompt her to enter her stress levels after significant breaks in her teaching day, such as after lunch or a planning period. She wants this to help her pause and reflect on her mental state. Sarah hopes the app will provide insights into her stress patterns, showing how her workload, student interactions, and personal time impact her well-being, ultimately helping her balance her professional responsibilities and self-care more effectively.
