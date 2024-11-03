@@ -1,13 +1,32 @@
-<h3 style="text-align:center;">Requirement List</h3>
+### Requirement List
 
-1. An interface (pop-up or a page in the app) that enables users to enter data
-2. A Tracker on the data, enables users to check how they are doing
-3. Notifications:
-  Send timely prompts when users unlock their phones after a specified period of inactivity.
+MoSCoW (Listing the importance of tasks): Must-have, Should-have, Could-have, Would-have (Would be nice to have)
 
-   Or send timely prompts when users are using certain types of apps.
+1. **Must-have** An interface (pop-up or a page in the app) that enables users to enter data
 
-    Allow customization of notification frequency and type (On which time to when the app would prompt).
+   - The main interface (Done, 6 hours)
+     - This should also include the entry fields
 
-4. Show some analysis of how the user is doing overall.
-5. **Maybe** Prompt the user to with suggestions, such as reminding the user to take more water to stay hydrated.
+   - The analysis interface (Estimation 4-6 hours)
+     - **Should-have** A graph analysis for data overview in the past week (Estimation 1-2 hours)
+     - **Could-have** A comparison of suggested data and current status (Estimation 1-2 hours)
+
+   - **Must-have** The records interface that stores all the current records and export records function (Estimation 2 hours)
+
+   - **Must-have** Pop-up data entry field (Estimation 3 hours)
+     - When users click a notification, this would pop up a window for users to enter data
+       - This should also contain a button that allows users to navigate to the main interface
+
+2. **All Must-have** Notifications
+
+   - Send timely prompts when users unlock their phones after a specified period (typically 2 hours) of inactivity. (Done, 6 hours)
+
+   - Or send timely prompts when users are using certain types of apps. (Estimation 6 hours)
+
+   - **Could-have** Allow customization of notification frequency and type (on which time to when the app would prompt).
+
+3. **Would-have** Prompt the user with suggestions, such as reminding the user to take more water to stay hydrated.
+
+4. **Must-have** Experiment Design
+
+   - An estimation will come on
