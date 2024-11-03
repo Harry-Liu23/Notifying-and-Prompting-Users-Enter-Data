@@ -1,54 +1,45 @@
-**User Story 1: Mood Tracker**
+### User Story 1: Self-Care Awareness
 
 **User Profile:**
 
-Name: Emma Johnson
-
-Occupation: Graphic Designer
-
-Age: 28
+Name: Alex Nguyen
 
 **Story:**
 
-As a busy graphic designer, Emma often finds herself absorbed in creative projects, sometimes losing track of her emotional well-being throughout the day. She wants to maintain a daily log of her mood to identify patterns and triggers that affect her productivity and creativity.
+Alex is interested in keeping track of his self-care habits to ensure he stays on top of his physical and mental health. He often finds that he neglects drinking enough water and taking short breaks throughout his day. Alex wants a reminder system that prompts him to log specific well-being activities and encourages him to prioritize self-care.
 
 **Expectation:**
 
-Emma expects the app to send a prompt asking her to rate her mood whenever she unlocks her phone after a break, such as when she steps away for lunch or after work. She appreciates that this timing fits seamlessly into her routine, allowing her to easily log her feelings without disrupting her workflow. Emma also hopes to see visual feedback over time, helping her correlate her mood with work output and personal life events.
+Alex expects the project to prompt him at strategic times, like after he unlocks his phone following a period of inactivity, to log activities like water intake, rest, and mood. He appreciates the idea of customized prompts based on his behavior patterns and wants to see if consistent reminders improve his self-care habits over time. He also hopes to track his progress to understand how his daily routine changes with the system’s assistance.
 
-**User Story 2: Hydration Reminder**
+---
 
-**User Profile:**
-
-
-Name: Mark Stevens
-
-Occupation: Project Manager
-
-Age: 34
-
-**Story:**
-
-Mark leads a fast-paced life managing multiple projects and teams. He often forgets to stay hydrated during his busy workdays, which leads to fatigue and decreased focus. Mark wants to ensure he meets his daily hydration goals without constant reminders interrupting his workflow.
-
-**Expectation:**
-
-He anticipates that the app will prompt him to log his water intake each time he unlocks his phone in the afternoon after he’s finished a busy morning of meetings. This should feel like a supportive reminder rather than an annoying interruption. Mark hopes to see progress tracking within the app, encouraging him to reach his hydration targets consistently and possibly linking to a health dashboard for overall wellness insights.
-
-**User Story 3: Stress Level Tracker**
+### User Story 2: Stress Management
 
 **User Profile:**
 
 Name: Sarah Lee
 
-Occupation: High School Teacher
-
-Age: 40
-
 **Story:**
 
-Sarah experiences varying levels of stress due to her demanding teaching schedule and the emotional labor of supporting her students. She wants to monitor her stress levels to develop better-coping strategies and improve her mental health over time.
+Sarah wants to manage her stress levels and understand the factors that contribute to her daily stress. She believes that being prompted to log her stress levels at different times could help her identify patterns in her daily routine that might otherwise go unnoticed.
 
 **Expectation:**
 
-Sarah expects the app to prompt her to enter her stress levels after significant breaks in her teaching day, such as after lunch or a planning period. She wants this to help her pause and reflect on her mental state. Sarah hopes the app will provide insights into her stress patterns, showing how her workload, student interactions, and personal time impact her well-being, ultimately helping her balance her professional responsibilities and self-care more effectively.
+Sarah expects the project to notify her at specific moments—such as when she has been using certain apps for prolonged periods—that prompts her to rate her stress level. This information will allow her to see trends over time, which can help her make lifestyle adjustments to better manage stress. She values the project’s goal of finding optimal times to send prompts, minimizing disruption while maximizing her data accuracy.
+
+---
+
+### User Story 3: Productivity and Well-being Balance
+
+**User Profile:**
+
+Name: Michael Adams
+
+**Story:**
+
+Michael values maintaining a balance between productivity and well-being. He feels that subtle, well-timed reminders would help him stay aware of his mental state and energy levels without interrupting his focus on work tasks.
+
+**Expectation:**
+
+Michael expects the project to prompt him to log his energy and mood levels at intervals that align with his work schedule, especially after completing major tasks or during lunch breaks. He appreciates that this project aims to find optimal prompting times, allowing him to gauge his productivity and well-being balance without feeling overwhelmed by notifications. He’s also interested in reviewing his data trends to observe how his daily performance correlates with his well-being.
