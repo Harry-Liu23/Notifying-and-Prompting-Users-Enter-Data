@@ -1,45 +1,27 @@
 ### User Story 1: Self-Care Awareness
 
-**User Profile:**
+**User Profile:**  
+**Name:** Alex Nguyen
 
-Name: Alex Nguyen
-
-**Story:**
-
-Alex is interested in keeping track of his self-care habits to ensure he stays on top of his physical and mental health. He often finds that he neglects drinking enough water and taking short breaks throughout his day. Alex wants a reminder system that prompts him to log specific well-being activities and encourages him to prioritize self-care.
-
-**Expectation:**
-
-Alex expects the project to prompt him at strategic times, like after he unlocks his phone following a period of inactivity, to log activities like water intake, rest, and mood. He appreciates the idea of customized prompts based on his behavior patterns and wants to see if consistent reminders improve his self-care habits over time. He also hopes to track his progress to understand how his daily routine changes with the system’s assistance.
+**Story and Expectation:**  
+Alex is dedicated to maintaining his physical and mental well-being, but he struggles to stay on top of his self-care habits, like drinking water and taking breaks. He finds that reminders to log these activities often come at inconvenient times—like during meetings or while he’s focused on work—causing him to dismiss them. He wants something that can remind him to log his self-care activities at better times, such as after periods of inactivity or when he unlocks his phone, so he doesn’t miss important reminders. By having notifications arrive at more natural points in his day, Alex hopes to keep up with his self-care routine more consistently.
 
 ---
 
 ### User Story 2: Stress Management
 
-**User Profile:**
+**User Profile:**  
+**Name:** Sarah Lee
 
-Name: Sarah Lee
-
-**Story:**
-
-Sarah wants to manage her stress levels and understand the factors that contribute to her daily stress. She believes that being prompted to log her stress levels at different times could help her identify patterns in her daily routine that might otherwise go unnoticed.
-
-**Expectation:**
-
-Sarah expects the project to notify her at specific moments—such as when she has been using certain apps for prolonged periods—that prompts her to rate her stress level. This information will allow her to see trends over time, which can help her make lifestyle adjustments to better manage stress. She values the project’s goal of finding optimal times to send prompts, minimizing disruption while maximizing her data accuracy.
+**Story and Expectation:**  
+Sarah wants to manage her stress by tracking it throughout the day, but she often misses notifications to log her stress levels when they arrive at the wrong time—like when she’s in a meeting or deep in a work task. Sometimes, the notifications even add to her stress because they feel disruptive. She wants something that can prompt her at calmer, more appropriate moments—like after a long period on social media or when she’s between tasks—so she can better capture how she’s feeling. By being alerted at times when she’s more receptive, Sarah hopes to see patterns in her stress that will help her make adjustments to her routine.
 
 ---
 
 ### User Story 3: Productivity and Well-being Balance
 
-**User Profile:**
+**User Profile:**  
+**Name:** Michael Adams
 
-Name: Michael Adams
-
-**Story:**
-
-Michael values maintaining a balance between productivity and well-being. He feels that subtle, well-timed reminders would help him stay aware of his mental state and energy levels without interrupting his focus on work tasks.
-
-**Expectation:**
-
-Michael expects the project to prompt him to log his energy and mood levels at intervals that align with his work schedule, especially after completing major tasks or during lunch breaks. He appreciates that this project aims to find optimal prompting times, allowing him to gauge his productivity and well-being balance without feeling overwhelmed by notifications. He’s also interested in reviewing his data trends to observe how his daily performance correlates with his well-being.
+**Story and Expectation:**  
+Michael strives to balance productivity and well-being, but reminders to log his energy and mood often interrupt him at the wrong times—like when he’s focused on a task or in the middle of a meeting. He sometimes misses notifications altogether because they arrive while he’s busy, making it difficult to track his mental state accurately. He wants something that can prompt him subtly at times that fit his work rhythm, such as after completing a task or during breaks, allowing him to capture his well
