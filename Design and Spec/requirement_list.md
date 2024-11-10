@@ -8,7 +8,7 @@
 
    - The main interface (Done, 6 hours)
      - Implement a main screen allowing data entry by displaying input fields for users to enter relevant information.
-     - Design the interface to be intuitive and accessible, possibly using layouts that scale well across different device sizes.
+     - Design the interface as intuitive and accessible, possibly using layouts that scale well across different device sizes.
      - Incorporate options to save and clear data entries, ensuring data persists between app sessions through storage mechanisms like SQLite or shared preferences.
 
    - The analysis interface (Estimation 8-10 hours)
@@ -36,27 +36,12 @@
      - Monitor foreground activities (potentially through accessibility services, if permitted) to detect when specified apps are open.
      - Trigger notifications to remind users of data entry if a target app has been open for a specified time.
 
-   - **Could-have** Allow customization of notification frequency and type (on which time to when the app would prompt).
+   - **Could-have** Allow customization of notification frequency and type (i.e., the time at which the app would prompt).
      - Add options for users to select how often notifications should be sent and which types of events (like unlocking the phone or opening specific apps) should prompt reminders.
      - Store these user preferences and ensure the notification system respects these settings dynamically.
 
-3. **Would-have** Prompt the user with suggestions, such as reminding the user to take more water to stay hydrated.
+3. **Would-have** Prompt the user with suggestions, such as reminding the user to stay hydrated.
    - Periodically assess the user’s data and, based on patterns or missing entries, prompt with suggestions (e.g., hydrate reminder).
    - Implement simple rules to analyze data entries and suggest actions based on patterns like infrequent water intake, lack of mood updates, etc.
-
-4. **Must-have** Experiment Design
-
-   - An estimation will come on
-
-5. **Must-have** User stories
-   
-   - For the app
-     
-   - For the entire project
-  
-6. **Must-have** Experiment Execution
-
-   - Finding participants (Estimation 1-3 days)
-      - The users must have android devices
-   - Conducting the experiment (3 days)
+      - The users must have Android devices
    - **Could-have** Second stage (Testing the set-up and customization of prompting settings)
