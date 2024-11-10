@@ -1,9 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/wellbeing_data_enter
-    username: root
-    password: 114514@Hts
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
