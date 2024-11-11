@@ -4,9 +4,9 @@
 
 ---
 
-1. **Must-have** An interface (pop-up or a page in the app) that enables users to enter data
+1.  An interface (pop-up or a page in the app) that enables users to enter data
 
-   - The main interface (Done, 6 hours)
+   - **Must-have** The main interface (Done, 6 hours)
      - Implement a main screen allowing data entry by displaying input fields for users to enter relevant information.
      - Design the interface as intuitive and accessible, possibly using layouts that scale well across different device sizes.
      - Incorporate options to save and clear data entries, ensuring data persists between app sessions through storage mechanisms like SQLite or shared preferences.
