@@ -4,9 +4,9 @@
 
 ---
 
-1. **Must-have** An interface (pop-up or a page in the app) that enables users to enter data
+1.  An interface (pop-up or a page in the app) that enables users to enter data
 
-   - The main interface (Done, 6 hours)
+   - **Must-have** The main interface (Done, 6 hours)
      - Implement a main screen allowing data entry by displaying input fields for users to enter relevant information.
      - Design the interface as intuitive and accessible, possibly using layouts that scale well across different device sizes.
      - Incorporate options to save and clear data entries, ensuring data persists between app sessions through storage mechanisms like SQLite or shared preferences.
@@ -26,15 +26,15 @@
      - Use a dialog-style layout that prompts the user to enter data and includes an option to navigate directly to the main interface.
      - Ensure this pop-up handles cases where the user exits or navigates away, storing any data entered up to that point.
 
-2. **All Must-have** Notifications
+2. Notifications
 
-   - Send timely prompts when users unlock their phones after a specified period (typically 2 hours) of inactivity. (Done, 6 hours)
-     - Register a broadcast receiver that listens for phone unlock events.
-     - Use an AlarmManager or similar to manage the time interval and prompt users upon unlocking if the inactivity threshold is met.
+   - **Must-have** Send timely prompts when users unlock their phones after a specified period (typically 2 hours) of inactivity. (Done, 6 hours)
+     -  Register a broadcast receiver that listens for phone unlock events.
+     -  Use an AlarmManager or similar to manage the time interval and prompt users upon unlocking if the inactivity threshold is met.
 
-   - Or send timely prompts when users are using certain types of apps. (Estimation 6 hours)
-     - Monitor foreground activities (potentially through accessibility services, if permitted) to detect when specified apps are open.
-     - Trigger notifications to remind users of data entry if a target app has been open for a specified time.
+   - **Must-have** Or send timely prompts when users are using certain types of apps. (Estimation 6 hours)
+     -  Monitor foreground activities (potentially through accessibility services, if permitted) to detect when specified apps are open.
+     -  Trigger notifications to remind users of data entry if a target app has been open for a specified time.
 
    - **Could-have** Allow customization of notification frequency and type (i.e., the time at which the app would prompt).
      - Add options for users to select how often notifications should be sent and which types of events (like unlocking the phone or opening specific apps) should prompt reminders.
