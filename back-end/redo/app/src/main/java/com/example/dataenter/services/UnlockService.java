@@ -10,7 +10,6 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
-import androidx.core.app.ServiceCompat;
 
 import com.example.dataenter.R;
 import com.example.dataenter.dialogs.EnterDataActivity;
@@ -22,14 +21,11 @@ public class UnlockService extends Service {
 
     private static final String TAG = "UnlockService";
     private static final String CHANNEL_ID = "UnlockReminderChannel";
-    private static final int NOTIFICATION_ID = 1;
+    private static final int NOTIFICATION_ID = 1010;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "Starting foreground service to send notification");
-
-        // Send the notification
-        sendUnlockNotification(getApplicationContext());
 
         // Start the service as a foreground service
         startForeground(NOTIFICATION_ID, createNotification(getApplicationContext()));
@@ -38,7 +34,7 @@ public class UnlockService extends Service {
         return START_NOT_STICKY;
     }
 
-    private Notification createNotification(Context context) {
+    public Notification createNotification(Context context) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         // Create Notification Channel (required for API level 26+)
@@ -71,10 +67,6 @@ public class UnlockService extends Service {
                 .setContentIntent(pendingIntent) // Set the PendingIntent to open EnterDataActivity
                 .setAutoCancel(true) // Automatically removes the notification after being tapped
                 .build();
-    }
-
-    private void sendUnlockNotification(Context context) {
-        // You can add extra functionality here if needed for additional notification customization
     }
 
     @Override
