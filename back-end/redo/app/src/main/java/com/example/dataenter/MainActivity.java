@@ -103,13 +103,6 @@ public class MainActivity extends AppCompatActivity {
         unregisterReceiver(unlockReceiver);
     }
 
-    public void startForegroundService() {
-        Intent serviceIntent = new Intent(this, UnlockService.class);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(serviceIntent); // Start the service as a foreground service
-        }
-    }
-
 
     @Override
     protected void onDestroy() {
