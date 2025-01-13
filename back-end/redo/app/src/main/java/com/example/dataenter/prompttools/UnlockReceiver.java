@@ -18,16 +18,32 @@ import com.example.dataenter.dialogs.EnterDataActivity;
 public class UnlockReceiver extends BroadcastReceiver {
 
     private static final String TAG = "UnlockReceiver";
+    public UnlockTiming unlockTiming;
+
+    public UnlockReceiver() {
+        // Initialize UnlockTiming with default values or customize as needed
+        unlockTiming = new UnlockTiming("02:00", "08:00", "22:00"); // Default: 2 hours, active 8 AM to 10 PM
+    }
+
+    public UnlockTiming getUnlockTiming() {
+        return unlockTiming;
+    }
 
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_USER_PRESENT.equals(intent.getAction())) {
             Log.d(TAG, "User unlocked the screen");
-            showNotification(context);
+
+            if (unlockTiming.unlockChecks()) {
+                Log.d(TAG, "Notification allowed within the time constraints");
+                showNotification(context);
+            } else {
+                Log.d(TAG, "Notification skipped due to time constraints");
+            }
         }
     }
 
-    private void showNotification(Context context) {
+    public void showNotification(Context context) {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 

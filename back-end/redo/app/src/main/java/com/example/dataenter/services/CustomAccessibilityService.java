@@ -1,22 +1,33 @@
 package com.example.dataenter.services;
 
 import android.accessibilityservice.AccessibilityService;
-import android.app.Notification;
-import android.app.NotificationManager;
+import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
-import android.widget.Toast;
 
-import com.example.dataenter.R;
+import com.example.dataenter.prompttools.UnlockReceiver;
+import com.example.dataenter.prompttools.UnlockTiming;
 
 public class CustomAccessibilityService extends AccessibilityService {
+
+    UnlockReceiver unlockReceiver = new UnlockReceiver();
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         // Check the current package
         String packageName = event.getPackageName().toString();
-        if ("com.google.android.youtube".equals(packageName)) {
-            sendNotification();
+        Log.e("something:", packageName);
+//        if ("com.google.android.youtube".equals(packageName)) {
+//                unlockReceiver.showNotification(this);
+//        }
+        PackageNameEnum[] packageNameEnums = PackageNameEnum.values();
+        for (PackageNameEnum packageNameEnum : packageNameEnums){
+            UnlockTiming unlockTiming;
+            if(packageName.equals(packageNameEnum.getPackageName()) && unlockReceiver.getUnlockTiming().unlockChecks()){
+                unlockReceiver.showNotification(this);
+                break;
+            }
         }
+
     }
 
     @Override
@@ -24,18 +35,4 @@ public class CustomAccessibilityService extends AccessibilityService {
         // Required override
     }
 
-    private void sendNotification() {
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-        Notification notification = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            notification = new Notification.Builder(this, "CHANNEL_ID")
-                    .setContentTitle("YouTube Detected")
-                    .setContentText("You are using YouTube!")
-                    .setSmallIcon(R.drawable.ic_notification)
-                    .build();
-        }
-
-        notificationManager.notify(1, notification);
-    }
 }
