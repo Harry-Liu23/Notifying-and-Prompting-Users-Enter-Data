@@ -20,7 +20,7 @@ public class SaveData {
     public void saveButton() {
             EditText moodInput = mainActivity.findViewById(R.id.mood_input);
             EditText waterInput = mainActivity.findViewById(R.id.water_input);
-            EditText otherInput = mainActivity.findViewById(R.id.nothing_input);
+            EditText otherInput = mainActivity.findViewById(R.id.calorie_input);
             Button saveButton = mainActivity.findViewById(R.id.save_button);
 
             saveButton.setOnClickListener(view -> {

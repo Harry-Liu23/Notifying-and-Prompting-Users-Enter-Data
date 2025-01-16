@@ -1,5 +1,7 @@
 package com.example.dataenter.prompttools;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.time.LocalDateTime;
@@ -20,15 +22,6 @@ public class UnlockTiming {
         this.notifyCheck = false;
     }
 
-    public void setCustomPeriod(int hours, int minutes) {
-        this.userCustomPeriod = String.format("%02d:%02d", hours, minutes);
-        Log.d(TAG, "Custom period set to: " + this.userCustomPeriod);
-    }
-
-    public UnlockTiming() {
-        this("02:00", "00:00", "23:59");
-    }
-
     // Gets the current time in HH:mm format
     public String getTime() {
         LocalDateTime now = null;
@@ -45,6 +38,7 @@ public class UnlockTiming {
     public boolean unlockChecks() {
         String currentTime = getTime();
         Log.d(TAG, "Checking unlock constraints at " + currentTime);
+        Log.d(TAG, "Time intervals is"+userCustomPeriod);
 
         if (!isWithinActiveHours(currentTime)) {
             Log.d(TAG, "Outside active hours. Start: " + startTime + ", End: " + endTime);

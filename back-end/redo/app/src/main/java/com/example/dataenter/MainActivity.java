@@ -5,6 +5,7 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,7 +26,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.dataenter.databinding.ActivityMainBinding;
-import com.example.dataenter.services.CustomAccessibilityService;
 import com.example.dataenter.services.ForegroundService;
 
 import java.util.List;
@@ -45,13 +45,32 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+        boolean isFirstLaunch = sharedPreferences.getBoolean("isFirstLaunch", true);
+
+        if (isFirstLaunch) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("isFirstLaunch", false);
+            editor.apply();
+
+            // Navigate to SettingsFragment
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+            navController.navigate(R.id.navigation_settings);
+        }else{
+            navigateToHome();
+        }
+        initializeComponenets();
+
+
+    }
+
+    private void initializeComponenets() {
         // Initialize unlock receiver
         unlockReceiver = new UnlockReceiver();
         Intent serviceIntent = new Intent(this, ForegroundService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(serviceIntent);
         }
-//        unlockReceiver.onReceive(this,serviceIntent);
 
         // Initialize SaveData
         if (saveData == null) {
@@ -69,6 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Request notification permission
         requestNotificationPermission();
+    }
+
+    private void navigateToHome(){
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        navController.navigate(R.id.navigation_home);
     }
 
     /**

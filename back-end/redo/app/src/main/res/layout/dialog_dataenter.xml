@@ -37,7 +37,7 @@
         android:id="@+id/et_nothing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nothing"
+        android:hint="Calorie Intake"
         android:background="@drawable/rounded_edittext"
         android:padding="12dp"
         android:layout_marginTop="8dp" />

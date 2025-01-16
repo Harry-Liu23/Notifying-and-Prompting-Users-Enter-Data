@@ -56,7 +56,7 @@ public class RecordFragment extends Fragment {
                         data.append("ID: ").append(id)
                                 .append(", Mood: ").append(mood)
                                 .append(", Water: ").append(water)
-                                .append(", Other: ").append(other)
+                                .append(", Calorie: ").append(other)
                                 .append("\n");
                     } catch (IllegalArgumentException e) {
                         Log.e("DatabaseError", "Column missing in cursor: " + e.getMessage());
