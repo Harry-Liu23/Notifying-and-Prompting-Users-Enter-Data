@@ -3,5 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_record">Records</string>
     <string name="title_analysis">Analysis</string>
+    <string name="title_settings">Settings</string>
     <string name="export_data">Export Data</string>
 </resources>

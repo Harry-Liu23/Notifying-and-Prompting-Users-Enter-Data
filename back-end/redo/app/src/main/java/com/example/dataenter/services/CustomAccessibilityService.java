@@ -16,9 +16,6 @@ public class CustomAccessibilityService extends AccessibilityService {
         // Check the current package
         String packageName = event.getPackageName().toString();
         Log.e("something:", packageName);
-//        if ("com.google.android.youtube".equals(packageName)) {
-//                unlockReceiver.showNotification(this);
-//        }
         PackageNameEnum[] packageNameEnums = PackageNameEnum.values();
         for (PackageNameEnum packageNameEnum : packageNameEnums){
             UnlockTiming unlockTiming;
