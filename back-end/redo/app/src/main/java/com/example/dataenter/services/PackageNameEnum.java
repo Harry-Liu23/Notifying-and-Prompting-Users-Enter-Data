@@ -1,17 +1,19 @@
 package com.example.dataenter.services;
 
-import java.util.EnumSet;
-
-
     /**
      * Enum representing popular app package names.
      */
     public enum PackageNameEnum {
         YOUTUBE("com.google.android.youtube"),
         INSTAGRAM("com.instagram.android"),
-        WHATSAPP("com.whatsapp"),
         TIKTOK("com.zhiliaoapp.musically"),
-        AMAZON("com.amazon.mShop.android.shopping");
+        AMAZON("com.amazon.mShop.android.shopping"),
+        DISCORD("com.discord"),
+        TWITTER("com.twitter.android"),
+        REDnote("com.xingin.xhs"),
+        SHEIN("com.zzkko"),
+        FACEBOOK("com.facebook.katana");
+
 
         private String packageName;
 

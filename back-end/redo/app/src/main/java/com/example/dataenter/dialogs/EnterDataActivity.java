@@ -1,5 +1,7 @@
 package com.example.dataenter.dialogs;
 
+import static com.example.dataenter.services.CustomAccessibilityService.triggeredBy;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -38,7 +40,7 @@ public class EnterDataActivity extends Activity {
         // Initialize dialog components
         EditText etMood = dialogView.findViewById(R.id.et_mood);
         EditText etWaterIntake = dialogView.findViewById(R.id.et_water_intake);
-        EditText etNothing = dialogView.findViewById(R.id.et_nothing);
+        EditText etCalorie = dialogView.findViewById(R.id.et_calorie);
 
         Button btnEnterData = dialogView.findViewById(R.id.btn_enter_data);
         Button btnOpenMain = dialogView.findViewById(R.id.btn_open_main);
@@ -49,21 +51,22 @@ public class EnterDataActivity extends Activity {
         btnEnterData.setOnClickListener(v -> {
             String mood = etMood.getText().toString().trim();
             String water = etWaterIntake.getText().toString().trim();
-            String other = etNothing.getText().toString().trim();
+            String calorie = etCalorie.getText().toString().trim();
 
-            if (mood.isEmpty() || water.isEmpty() || other.isEmpty()) {
+            if (mood.isEmpty() || water.isEmpty() || calorie.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             } else {
-                boolean isInserted = databaseHelper.insertRecord(mood, water, other);
+                boolean isInserted = databaseHelper.insertRecord(mood, water, calorie);
                 if (isInserted) {
                     Toast.makeText(this, "Record saved successfully", Toast.LENGTH_SHORT).show();
                     etMood.setText("");
                     etWaterIntake.setText("");
-                    etNothing.setText("");
+                    etCalorie.setText("");
                 } else {
                     Toast.makeText(this, "Failed to save record", Toast.LENGTH_SHORT).show();
                 }
             }
+            triggeredBy = "no";
             dialog.dismiss();
         });
 

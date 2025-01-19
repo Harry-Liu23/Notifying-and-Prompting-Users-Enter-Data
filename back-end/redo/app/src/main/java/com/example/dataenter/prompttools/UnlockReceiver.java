@@ -15,10 +15,15 @@ import androidx.core.app.NotificationCompat;
 import com.example.dataenter.R;
 import com.example.dataenter.dialogs.EnterDataActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class UnlockReceiver extends BroadcastReceiver {
 
     private static final String TAG = "UnlockReceiver";
     public UnlockTiming unlockTiming;
+    public static String lastNotificationTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+            .format(System.currentTimeMillis());
 
     public UnlockReceiver() {
         // Initialize UnlockTiming with default values or customize as needed
@@ -75,6 +80,9 @@ public class UnlockReceiver extends BroadcastReceiver {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
                 .build();
+
+        lastNotificationTime = new SimpleDateFormat("MM-dd HH:mm:ss", Locale.getDefault())
+                .format(System.currentTimeMillis());
 
         notificationManager.notify(2, notification);
     }

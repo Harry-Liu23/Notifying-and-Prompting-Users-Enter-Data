@@ -51,12 +51,12 @@ public class RecordFragment extends Fragment {
                         int id = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ID));
                         String mood = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_MOOD));
                         String water = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_WATER));
-                        String other = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_OTHER));
+                        String calorie = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_CALORIE));
 
                         data.append("ID: ").append(id)
                                 .append(", Mood: ").append(mood)
                                 .append(", Water: ").append(water)
-                                .append(", Calorie: ").append(other)
+                                .append(", Calorie: ").append(calorie)
                                 .append("\n");
                     } catch (IllegalArgumentException e) {
                         Log.e("DatabaseError", "Column missing in cursor: " + e.getMessage());
@@ -121,15 +121,17 @@ public class RecordFragment extends Fragment {
                     int id = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ID));
                     String mood = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_MOOD));
                     String water = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_WATER));
-                    String other = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_OTHER));
-                    String timestamp = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_TIMESTAMP));
+                    String calorie = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_CALORIE));
+                    String entryTime = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_DATA_ENTRY_TIME));
+                    String notificationTime = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_NOTIFICATION_TIME));
 
                     // Create and populate TextViews for each column
                     row.addView(createTextView(String.valueOf(id)));
                     row.addView(createTextView(mood));
                     row.addView(createTextView(water));
-                    row.addView(createTextView(other));
-                    row.addView(createTextView(timestamp));
+                    row.addView(createTextView(calorie));
+                    row.addView(createTextView(entryTime));
+                    row.addView(createTextView(notificationTime));
 
                     // Add the row to the table layout
                     binding.tableLayout.addView(row);
