@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -15,7 +16,7 @@ import java.util.Locale;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "records.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 5;
 
     public static final String TABLE_NAME = "records";
     public static final String COLUMN_ID = "id";
@@ -36,20 +37,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_MOOD + " TEXT, " +
                 COLUMN_WATER + " TEXT, " +
-                COLUMN_CALORIE + " TEXT," +
-                COLUMN_DATA_ENTRY_TIME + "TEXT," +
-                COLUMN_NOTIFICATION_TIME + " TEXT,"+
+                COLUMN_CALORIE + " TEXT, " +
+                COLUMN_DATA_ENTRY_TIME + " TEXT, " +
+                COLUMN_NOTIFICATION_TIME + " TEXT, " +
                 COLUMN_TRIGGERED_BY + " TEXT)";
         db.execSQL(createTable);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        onCreate(db);
+        Log.e("Upgrade check", "DB upgraded!");
+        if (oldVersion < 5) {
+            ensureColumnExists(db, COLUMN_DATA_ENTRY_TIME);
+            ensureColumnExists(db, COLUMN_NOTIFICATION_TIME);
+            ensureColumnExists(db, COLUMN_TRIGGERED_BY);
+        }
     }
 
+    private void ensureColumnExists(SQLiteDatabase db, String columnName) {
+        try (Cursor cursor = db.rawQuery("PRAGMA table_info(" + DatabaseHelper.TABLE_NAME + ")", null)) {
+            boolean columnExists = false;
+            while (cursor.moveToNext()) {
+                String existingColumnName = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+                if (columnName.equals(existingColumnName)) {
+                    columnExists = true;
+                    break;
+                }
+            }
+            if (!columnExists) {
+                db.execSQL("ALTER TABLE " + DatabaseHelper.TABLE_NAME + " ADD COLUMN " + columnName + " " + "TEXT");
+            }
+        }
+    }
+
+
     public boolean insertRecord(String mood, String water, String calorie) {
+        Log.e("Data version", String.valueOf(DATABASE_VERSION));
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_MOOD, mood);

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.core.widget.NestedScrollView
+    android:id="@+id/nestedScrollView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:paddingBottom="16dp">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,6 +17,7 @@
     android:padding="16dp"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="4dp">
+
 
     <TextView
         android:id="@+id/title"
@@ -44,6 +48,8 @@
         android:layout_marginTop="28dp"
         android:backgroundTint="#E0E0E0"
         android:hint="Enter new record"
+        android:inputType="text"
+        android:imeOptions="actionNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="Water Intake"
+        android:text="Water Intake (ml)"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,10 +73,23 @@
         android:layout_marginTop="40dp"
         android:backgroundTint="#E0E0E0"
         android:hint="Enter new record"
+        android:inputType="number"
+        android:imeOptions="actionNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/water_label" />
+
+    <TextView
+        android:id="@+id/calorie_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Calorie Intake (kcal)"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/water_input" />
 
     <EditText
         android:id="@+id/calorie_input"
@@ -79,21 +98,13 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="#E0E0E0"
         android:hint="Enter new record"
+        android:inputType="number"
+        android:imeOptions="actionDone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calorie_label" />
 
-    <TextView
-        android:id="@+id/calorie_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Calorie Intake"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/water_input" />
 
     <Button
         android:id="@+id/save_button"
@@ -105,6 +116,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calorie_input" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

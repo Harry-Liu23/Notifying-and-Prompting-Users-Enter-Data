@@ -19,8 +19,9 @@
         android:id="@+id/et_mood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="Your mood"
+        android:hint="Your mood"
         android:background="@drawable/rounded_edittext"
+        android:textColor="@color/black"
         android:padding="12dp"
         android:layout_marginTop="8dp" />
 
@@ -28,8 +29,10 @@
         android:id="@+id/et_water_intake"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="Water Intake"
+        android:hint="Water Intake"
+        android:inputType="number"
         android:background="@drawable/rounded_edittext"
+        android:textColor="@color/black"
         android:padding="12dp"
         android:layout_marginTop="8dp" />
 
@@ -38,7 +41,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Calorie Intake"
+        android:inputType="number"
         android:background="@drawable/rounded_edittext"
+        android:textColor="@color/black"
         android:padding="12dp"
         android:layout_marginTop="8dp" />
 

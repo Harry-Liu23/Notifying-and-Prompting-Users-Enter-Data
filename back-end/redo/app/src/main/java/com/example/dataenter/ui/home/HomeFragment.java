@@ -34,6 +34,30 @@ public class HomeFragment extends Fragment {
         final TextView textView = binding.title;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
+        binding.moodInput.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_NEXT) {
+                binding.waterInput.requestFocus();
+                return true;
+            }
+            return false;
+        });
+
+        binding.waterInput.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_NEXT) {
+                binding.calorieInput.requestFocus();
+                return true;
+            }
+            return false;
+        });
+
+        binding.calorieInput.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_DONE) {
+                binding.calorieInput.clearFocus();
+                return true;
+            }
+            return false;
+        });
+
         // Access SaveData instance from MainActivity
         MainActivity mainActivity = (MainActivity) requireActivity();
         SaveData saveData = mainActivity.getSaveData();

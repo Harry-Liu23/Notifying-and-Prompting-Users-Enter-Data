@@ -1,14 +1,18 @@
 package com.example.dataenter.ui.settings;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -21,6 +25,7 @@ import androidx.navigation.Navigation;
 
 import com.example.dataenter.MainActivity;
 import com.example.dataenter.R;
+import com.example.dataenter.services.PackageNameEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,9 +76,53 @@ public class SettingsFragment extends Fragment {
             Toast.makeText(requireContext(), "Settings saved!", Toast.LENGTH_SHORT).show();
             saveSettingsAndNavigate();
         });
+        Button selectAppsButton = root.findViewById(R.id.select_apps_button);
+        selectAppsButton.setOnClickListener(v -> showAppSelectionDialog());
 
         return root;
     }
+
+    private void showAppSelectionDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Select Apps for Notifications");
+
+        // Create a vertical LinearLayout to hold CheckBoxes
+        LinearLayout layout = new LinearLayout(requireContext());
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setPadding(50, 40, 50, 20);
+        layout.setGravity(Gravity.CENTER);
+
+        // Get the list of app names from the enum
+        PackageNameEnum[] apps = PackageNameEnum.values();
+        CheckBox[] checkBoxes = new CheckBox[apps.length];
+
+        // SharedPreferences to load saved preferences
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
+
+        for (int i = 0; i < apps.length; i++) {
+            CheckBox checkBox = new CheckBox(requireContext());
+            checkBox.setText(apps[i].name());
+            checkBox.setChecked(sharedPreferences.getBoolean(apps[i].name(), true));
+            layout.addView(checkBox);
+            checkBoxes[i] = checkBox;
+        }
+
+        builder.setView(layout);
+
+        builder.setPositiveButton("Save", (dialog, which) -> {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            for (int i = 0; i < apps.length; i++) {
+                editor.putBoolean(apps[i].name(), checkBoxes[i].isChecked());
+            }
+            editor.apply();
+            Toast.makeText(requireContext(), "App selections saved!", Toast.LENGTH_SHORT).show();
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+
+        builder.create().show();
+    }
+
 
     private void setSpinnerSelection(Spinner spinner, String value) {
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinner.getAdapter();

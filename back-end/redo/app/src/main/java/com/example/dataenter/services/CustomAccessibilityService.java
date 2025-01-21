@@ -1,6 +1,7 @@
 package com.example.dataenter.services;
 
 import android.accessibilityservice.AccessibilityService;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
@@ -17,11 +18,13 @@ public class CustomAccessibilityService extends AccessibilityService {
         // Check the current package
         String packageName = event.getPackageName().toString();
         Log.e("something:", packageName);
-        PackageNameEnum[] packageNameEnums = PackageNameEnum.values();
-        for (PackageNameEnum packageNameEnum : packageNameEnums){
-            if(packageName.equals(packageNameEnum.getPackageName()) && unlockReceiver.getUnlockTiming().unlockChecks()){
-                triggeredBy = packageNameEnum.getPackageName();
-                unlockReceiver.showNotification(this);
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+        for (PackageNameEnum packageNameEnum : PackageNameEnum.values()){
+            if(packageName.equals(packageNameEnum.getPackageName()) && sharedPreferences.getBoolean(packageNameEnum.name(), true)) {
+                UnlockReceiver unlockReceiver = new UnlockReceiver();
+                if (unlockReceiver.getUnlockTiming().unlockChecks()) {
+                    unlockReceiver.showNotification(this);
+                }
                 break;
             }
         }
