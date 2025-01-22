@@ -1,25 +1,22 @@
 package com.example.dataenter.prompttools;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class UnlockTiming {
     private static final String TAG = "UnlockTiming";
-    private String previousTime = getTime();
+    private String previousIntervalEnd = null;
     private String userCustomPeriod; // Custom period in HH:mm format
     private String startTime;        // Start of the notification period
     private String endTime;          // End of the notification period
-    private Boolean notifyCheck;
 
     public UnlockTiming(String userCustomPeriod, String startTime, String endTime) {
         this.userCustomPeriod = userCustomPeriod;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.notifyCheck = false;
     }
 
     // Gets the current time in HH:mm format
@@ -38,30 +35,22 @@ public class UnlockTiming {
     public boolean unlockChecks() {
         String currentTime = getTime();
         Log.d(TAG, "Checking unlock constraints at " + currentTime);
-        Log.d(TAG, "Time intervals is"+userCustomPeriod);
 
         if (!isWithinActiveHours(currentTime)) {
             Log.d(TAG, "Outside active hours. Start: " + startTime + ", End: " + endTime);
-            setNotifyCheck(false); // Reset if outside active hours
             return false;
         }
 
-        if (previousTime == null) {
-            Log.d(TAG, "First run. Setting previousTime to " + currentTime);
-            previousTime = currentTime;
-            setNotifyCheck(true);
+        String currentIntervalEnd = getNextIntervalEnd(currentTime);
+
+        if (previousIntervalEnd == null || currentTime.compareTo(previousIntervalEnd) >= 0) {
+            Log.d(TAG, "New interval reached. Previous interval end: " + previousIntervalEnd);
+            previousIntervalEnd = currentIntervalEnd;
             return true;
-        }
-
-        if (isTimeExceeded(currentTime)) {
-            Log.d(TAG, "Time exceeded. Previous: " + previousTime + ", Current: " + currentTime);
-            previousTime = currentTime; // Update the time for the next check
-            setNotifyCheck(true);
         } else {
-            Log.d(TAG, "Time not exceeded. Previous: " + previousTime + ", Current: " + currentTime);
+            Log.d(TAG, "Current time still within the last interval.");
+            return false;
         }
-
-        return notifyCheck;
     }
 
 
@@ -71,25 +60,27 @@ public class UnlockTiming {
     }
 
     // Checks if the custom period has passed since the last notification
-    private boolean isTimeExceeded(String currentTime) {
-        int previousHour = Integer.parseInt(previousTime.substring(0, 2));
-        int previousMinute = Integer.parseInt(previousTime.substring(3));
+    private String getNextIntervalEnd(String currentTime) {
         int currentHour = Integer.parseInt(currentTime.substring(0, 2));
         int currentMinute = Integer.parseInt(currentTime.substring(3));
         int customHour = Integer.parseInt(userCustomPeriod.substring(0, 2));
         int customMinute = Integer.parseInt(userCustomPeriod.substring(3));
 
-        int elapsedMinutes = (currentHour * 60 + currentMinute) - (previousHour * 60 + previousMinute);
-        int requiredMinutes = customHour * 60 + customMinute;
+//      Time interval in minutes
+        int intervalMinutes = customHour * 60 + customMinute;
+//      Current time in mins
+        int totalMinutes = currentHour * 60 + currentMinute;
 
-        Log.d(TAG, "Previous time: " + previousTime + ", Current time: " + currentTime);
-        Log.d(TAG, "Elapsed minutes: " + elapsedMinutes + ", Required minutes: " + requiredMinutes);
+        // Find the next interval end time after the start time
+        int activeStartMinutes = Integer.parseInt(startTime.substring(0, 2)) * 60
+                + Integer.parseInt(startTime.substring(3));
+        int intervalOffset = ((totalMinutes - activeStartMinutes) / intervalMinutes + 1) * intervalMinutes;
 
-        return elapsedMinutes >= requiredMinutes;
-    }
+        int nextIntervalMinutes = activeStartMinutes + intervalOffset;
 
-    // Setter for notifyCheck
-    public void setNotifyCheck(Boolean boo) {
-        this.notifyCheck = boo;
+        int nextHour = (nextIntervalMinutes / 60) % 24; // Handle wrapping around midnight
+        int nextMinute = nextIntervalMinutes % 60;
+
+        return String.format(Locale.UK, "%02d:%02d", nextHour, nextMinute);
     }
 }
