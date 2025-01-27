@@ -53,9 +53,9 @@ public class SettingsFragment extends Fragment {
 
         // Load previously saved preferences and set the spinners
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
-        String savedStartTime = sharedPreferences.getString("startTime", "00:00"); // Default to "00:00"
-        String savedEndTime = sharedPreferences.getString("endTime", "00:00"); // Default to "00:00"
-        String savedInterval = sharedPreferences.getString("interval", "1 hour"); // Default to "1 hour"
+        String savedStartTime = sharedPreferences.getString("startTime", "08:00"); // Default to "00:00"
+        String savedEndTime = sharedPreferences.getString("endTime", "22:00"); // Default to "00:00"
+        String savedInterval = sharedPreferences.getString("interval", "01:00"); // Default to "1 hour"
 
         setSpinnerSelection(startTimeSpinner, savedStartTime);
         setSpinnerSelection(endTimeSpinner, savedEndTime);
@@ -162,8 +162,8 @@ public class SettingsFragment extends Fragment {
 
     private void setupIntervalSpinner(Spinner intervalSpinner) {
         List<String> intervalOptions = new ArrayList<>();
-        intervalOptions.add("1 hour");
-        intervalOptions.add("2 hours");
+        intervalOptions.add("01:00");
+        intervalOptions.add("02:00");
 
         ArrayAdapter<String> intervalAdapter = new ArrayAdapter<>(
                 requireContext(),

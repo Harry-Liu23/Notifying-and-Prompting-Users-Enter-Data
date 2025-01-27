@@ -52,11 +52,16 @@ public class RecordFragment extends Fragment {
                         String mood = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_MOOD));
                         String water = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_WATER));
                         String calorie = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_CALORIE));
-
+                        String entryTime = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_DATA_ENTRY_TIME));
+                        String notificationTime = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_NOTIFICATION_TIME));
+                        String triggeredBy = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_TRIGGERED_BY));
                         data.append("ID: ").append(id)
                                 .append(", Mood: ").append(mood)
                                 .append(", Water: ").append(water)
                                 .append(", Calorie: ").append(calorie)
+                                .append(", Entry Time: ").append(entryTime)
+                                .append(", Notification Time: ").append(notificationTime)
+                                .append(", Triggered By: ").append(triggeredBy)
                                 .append("\n");
                     } catch (IllegalArgumentException e) {
                         Log.e("DatabaseError", "Column missing in cursor: " + e.getMessage());

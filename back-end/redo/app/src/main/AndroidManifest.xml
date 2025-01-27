@@ -38,17 +38,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Broadcast Receiver for screen unlock -->
-        <receiver android:name=".prompttools.UnlockReceiver"
-            android:exported="true"
-            android:directBootAware="true">
-            <intent-filter>
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.intent.action.SCREEN_ON" />
-                <action android:name="android.intent.action.USER_UNLOCKED" />
-            </intent-filter>
-        </receiver>
-
         <!-- Services for background tasks -->
         <service android:name=".services.ForegroundService" android:foregroundServiceType="dataSync" android:exported="false"/>
         <service

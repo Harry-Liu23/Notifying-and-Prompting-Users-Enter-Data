@@ -6,11 +6,9 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
 import com.example.dataenter.prompttools.UnlockReceiver;
-import com.example.dataenter.prompttools.UnlockTiming;
 
 public class CustomAccessibilityService extends AccessibilityService {
 
-    UnlockReceiver unlockReceiver = new UnlockReceiver();
     public static String triggeredBy = "no";
 
     @Override
@@ -18,17 +16,20 @@ public class CustomAccessibilityService extends AccessibilityService {
         // Check the current package
         String packageName = event.getPackageName().toString();
         Log.e("something:", packageName);
+
         SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
-        for (PackageNameEnum packageNameEnum : PackageNameEnum.values()){
-            if(packageName.equals(packageNameEnum.getPackageName()) && sharedPreferences.getBoolean(packageNameEnum.name(), true)) {
-                UnlockReceiver unlockReceiver = new UnlockReceiver();
+        for (PackageNameEnum packageNameEnum : PackageNameEnum.values()) {
+            if (packageName.equals(packageNameEnum.getPackageName()) && sharedPreferences.getBoolean(packageNameEnum.name(), true)) {
+                // Pass the context to UnlockReceiver to initialize unlockTiming
+                triggeredBy = packageName;
+
+                UnlockReceiver unlockReceiver = new UnlockReceiver(this);
                 if (unlockReceiver.getUnlockTiming().unlockChecks()) {
                     unlockReceiver.showNotification(this);
                 }
                 break;
             }
         }
-
     }
 
     @Override

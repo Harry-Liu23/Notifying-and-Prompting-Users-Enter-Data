@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 
@@ -26,8 +27,16 @@ public class UnlockReceiver extends BroadcastReceiver {
             .format(System.currentTimeMillis());
 
     public UnlockReceiver() {
-        // Initialize UnlockTiming with default values or customize as needed
-        unlockTiming = new UnlockTiming("02:00", "08:00", "22:00"); // Default: 2 hours, active 8 AM to 10 PM
+        // Default constructor
+    }
+
+    public UnlockReceiver(Context context) {
+        // Initialize UnlockTiming using SharedPreferences
+        SharedPreferences sharedPreferences = context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
+        String interval = sharedPreferences.getString("interval", "02:00"); // Default 2 hours
+        String startTime = sharedPreferences.getString("startTime", "08:00"); // Default 8:00
+        String endTime = sharedPreferences.getString("endTime", "22:00"); // Default 22:00
+        this.unlockTiming = new UnlockTiming(context, interval, startTime, endTime);
     }
 
     public UnlockTiming getUnlockTiming() {
@@ -39,6 +48,15 @@ public class UnlockReceiver extends BroadcastReceiver {
         if (Intent.ACTION_USER_PRESENT.equals(intent.getAction())) {
             Log.d(TAG, "User unlocked the screen");
 
+
+            // Load settings from SharedPreferences
+            if (unlockTiming == null) {
+                SharedPreferences sharedPreferences = context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
+                String interval = sharedPreferences.getString("interval", "02:00"); // Default 2 hours
+                String startTime = sharedPreferences.getString("startTime", "08:00"); // Default 8:00
+                String endTime = sharedPreferences.getString("endTime", "22:00"); // Default 22:00
+                unlockTiming = new UnlockTiming(context, interval, startTime, endTime);
+            }
             if (unlockTiming.unlockChecks()) {
                 Log.d(TAG, "Notification allowed within the time constraints");
                 showNotification(context);
