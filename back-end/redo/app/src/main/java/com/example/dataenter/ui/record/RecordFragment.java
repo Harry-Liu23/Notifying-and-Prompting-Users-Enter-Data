@@ -78,12 +78,18 @@ public class RecordFragment extends Fragment {
         }
 
         File file = new File(requireContext().getExternalFilesDir(null), "exported_data.txt");
+
         try (FileOutputStream fos = new FileOutputStream(file)) {
             fos.write(data.toString().getBytes());
             Toast.makeText(requireContext(), "Data exported successfully", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(requireContext(), "Failed to export data", Toast.LENGTH_SHORT).show();
             Log.e("RecordFragment", "Error writing file", e);
+            return;
+        }
+        if (!file.exists() || file.length() == 0) {
+            Log.e("ExportError", "File was not created or is empty.");
+            Toast.makeText(requireContext(), "Export failed: File is empty", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -100,7 +106,13 @@ public class RecordFragment extends Fragment {
         shareIntent.putExtra(Intent.EXTRA_STREAM, fileUri);
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-        startActivity(Intent.createChooser(shareIntent, "Share data via"));
+        requireContext().grantUriPermission(requireContext().getPackageName(), fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        if (shareIntent.resolveActivity(requireContext().getPackageManager()) != null) {
+            startActivity(Intent.createChooser(shareIntent, "Share data via"));
+        } else {
+            Toast.makeText(requireContext(), "No app available to share file", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

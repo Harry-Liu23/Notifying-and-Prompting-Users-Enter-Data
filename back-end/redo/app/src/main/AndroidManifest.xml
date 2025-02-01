@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+
     <!-- FileProvider for scoped storage access -->
     <application
         android:allowBackup="true"
@@ -42,7 +43,7 @@
         <service android:name=".services.ForegroundService" android:foregroundServiceType="dataSync" android:exported="false"/>
         <service
             android:name=".services.CustomAccessibilityService"
-            android:exported="true"
+            android:exported="false"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -51,6 +52,7 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
         </service>
+
 
 
         <!-- FileProvider for file sharing -->

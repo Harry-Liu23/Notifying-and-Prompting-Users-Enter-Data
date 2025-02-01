@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import com.example.dataenter.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
+    public static int moodProgress = 2;
     private FragmentHomeBinding binding;
 
     @Override
@@ -34,12 +36,18 @@ public class HomeFragment extends Fragment {
         final TextView textView = binding.title;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-        binding.moodInput.setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_NEXT) {
-                binding.waterInput.requestFocus();
-                return true;
+        SeekBar moodSlider = binding.moodInput; // Assuming you set this in the layout XML
+        moodSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                moodProgress = progress; // Save the progress for later use
             }
-            return false;
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         binding.waterInput.setOnEditorActionListener((v, actionId, event) -> {

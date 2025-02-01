@@ -1,5 +1,6 @@
 package com.example.dataenter.dialogs;
 
+import static com.example.dataenter.database.SaveData.getMoodText;
 import static com.example.dataenter.services.CustomAccessibilityService.triggeredBy;
 
 import android.app.Activity;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.example.dataenter.MainActivity;
@@ -38,7 +40,7 @@ public class EnterDataActivity extends Activity {
         builder.setView(dialogView);
 
         // Initialize dialog components
-        EditText etMood = dialogView.findViewById(R.id.et_mood);
+        SeekBar etMood = dialogView.findViewById(R.id.mood_input_dialog);
         EditText etWaterIntake = dialogView.findViewById(R.id.et_water_intake);
         EditText etCalorie = dialogView.findViewById(R.id.et_calorie);
 
@@ -49,7 +51,8 @@ public class EnterDataActivity extends Activity {
 
         // Button to enter data (close dialog)
         btnEnterData.setOnClickListener(v -> {
-            String mood = etMood.getText().toString().trim();
+            int moodInt = etMood.getProgress();
+            String mood = getMoodText(moodInt);
             String water = etWaterIntake.getText().toString().trim();
             String calorie = etCalorie.getText().toString().trim();
 
@@ -59,7 +62,6 @@ public class EnterDataActivity extends Activity {
                 boolean isInserted = databaseHelper.insertRecord(mood, water, calorie);
                 if (isInserted) {
                     Toast.makeText(this, "Record saved successfully", Toast.LENGTH_SHORT).show();
-                    etMood.setText("");
                     etWaterIntake.setText("");
                     etCalorie.setText("");
                 } else {
@@ -79,5 +81,9 @@ public class EnterDataActivity extends Activity {
 
         dialog.setOnDismissListener(dialogInterface -> finish()); // Close activity when dialog is dismissed
         dialog.show();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

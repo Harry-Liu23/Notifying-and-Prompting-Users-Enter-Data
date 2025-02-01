@@ -41,19 +41,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
-    <EditText
+    <SeekBar
         android:id="@+id/mood_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:backgroundTint="#E0E0E0"
-        android:hint="Enter new record"
-        android:inputType="text"
-        android:imeOptions="actionNext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:max="4"
+        android:progress="2"
+        android:thumb="@drawable/custom_thumb"
+        android:progressDrawable="@drawable/custom_progress"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mood_label" />
+
 
     <TextView
         android:id="@+id/water_label"

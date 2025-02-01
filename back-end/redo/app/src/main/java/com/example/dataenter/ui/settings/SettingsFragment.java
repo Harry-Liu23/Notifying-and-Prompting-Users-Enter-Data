@@ -2,7 +2,6 @@ package com.example.dataenter.ui.settings;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -23,7 +22,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.example.dataenter.MainActivity;
 import com.example.dataenter.R;
 import com.example.dataenter.services.PackageNameEnum;
 

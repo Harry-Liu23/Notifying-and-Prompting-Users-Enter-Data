@@ -15,7 +15,6 @@ public class CustomAccessibilityService extends AccessibilityService {
     public void onAccessibilityEvent(AccessibilityEvent event) {
         // Check the current package
         String packageName = event.getPackageName().toString();
-        Log.e("something:", packageName);
 
         SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         for (PackageNameEnum packageNameEnum : PackageNameEnum.values()) {

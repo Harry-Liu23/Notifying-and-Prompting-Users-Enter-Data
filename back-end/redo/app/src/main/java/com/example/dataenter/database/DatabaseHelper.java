@@ -16,7 +16,7 @@ import java.util.Locale;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "records.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     public static final String TABLE_NAME = "records";
     public static final String COLUMN_ID = "id";
@@ -36,8 +36,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_MOOD + " TEXT, " +
-                COLUMN_WATER + " TEXT, " +
-                COLUMN_CALORIE + " TEXT, " +
+                COLUMN_WATER + " INTEGER, " +
+                COLUMN_CALORIE + " INTEGER, " +
                 COLUMN_DATA_ENTRY_TIME + " TEXT, " +
                 COLUMN_NOTIFICATION_TIME + " TEXT, " +
                 COLUMN_TRIGGERED_BY + " TEXT)";
@@ -47,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.e("Upgrade check", "DB upgraded!");
-        if (oldVersion < 5) {
+        if (oldVersion < 6) {
             ensureColumnExists(db, COLUMN_DATA_ENTRY_TIME);
             ensureColumnExists(db, COLUMN_NOTIFICATION_TIME);
             ensureColumnExists(db, COLUMN_TRIGGERED_BY);
@@ -87,6 +87,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result = db.insert(TABLE_NAME, null, contentValues);
         db.close();
         return result != -1; // Returns true if data is inserted successfully
+    }
+
+    public Cursor getMoodDataLastThreeDays() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + COLUMN_MOOD + ", " + COLUMN_DATA_ENTRY_TIME +
+                " FROM " + TABLE_NAME +
+                " WHERE substr(" + COLUMN_DATA_ENTRY_TIME + ", 1, 5) >= strftime('%m-%d', 'now', '-3 days')";
+        return db.rawQuery(query, null);
+    }
+
+    public Cursor getWaterDataForToday() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd", Locale.getDefault());
+        String currentDate = sdf.format(System.currentTimeMillis());
+
+        // Modify query to ensure it checks for exact format used in COLUMN_NOTIFICATION_TIME
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT SUM(water) FROM " + TABLE_NAME +
+                " WHERE substr(" + COLUMN_DATA_ENTRY_TIME + ", 1, 5) = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{currentDate});
+
+        return cursor;
     }
 
     public Cursor getAllRecords() {

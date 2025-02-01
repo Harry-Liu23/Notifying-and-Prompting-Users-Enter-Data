@@ -1,4 +1,3 @@
-<!-- res/layout/dialog_enter_data.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,21 +14,30 @@
         android:layout_gravity="center_horizontal"
         android:paddingBottom="12dp" />
 
-    <EditText
-        android:id="@+id/et_mood"
+    <TextView
+        android:id="@+id/mood_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your mood"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingTop="8dp"/>
+
+    <SeekBar
+        android:id="@+id/mood_input_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Your mood"
-        android:background="@drawable/rounded_edittext"
-        android:textColor="@color/black"
-        android:padding="12dp"
-        android:layout_marginTop="8dp" />
+        android:max="4"
+        android:progress="2"
+        android:thumb="@drawable/custom_thumb"
+        android:progressDrawable="@drawable/custom_progress"
+        android:paddingTop="8dp"/>
 
     <EditText
         android:id="@+id/et_water_intake"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Water Intake"
+        android:hint="Water Intake (ml)"
         android:inputType="number"
         android:background="@drawable/rounded_edittext"
         android:textColor="@color/black"
@@ -40,7 +48,7 @@
         android:id="@+id/et_calorie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Calorie Intake"
+        android:hint="Calorie Intake (kcal)"
         android:inputType="number"
         android:background="@drawable/rounded_edittext"
         android:textColor="@color/black"

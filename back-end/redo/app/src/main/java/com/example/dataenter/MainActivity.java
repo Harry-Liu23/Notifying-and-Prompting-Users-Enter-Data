@@ -26,6 +26,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.dataenter.databinding.ActivityMainBinding;
+import com.example.dataenter.services.CustomAccessibilityService;
 import com.example.dataenter.services.ForegroundService;
 
 import java.util.List;
@@ -124,14 +125,12 @@ public class MainActivity extends AppCompatActivity {
         for (AccessibilityServiceInfo service : enabledServices) {
             Log.d("AccessibilityService", "Service ID: " + service.getId());
             Log.d("AccessibilityService", getPackageName());
-//            if (service.getId().equals(CustomAccessibilityService.class.getName())) {
-//                isServiceEnabled = true;
-//                break;
-//            }
-            if (service.getId().contains(getPackageName() + "/.services.CustomAccessibilityService")) {
+            if (service.getResolveInfo().serviceInfo.name.equals(CustomAccessibilityService.class.getName())||
+                    service.getId().equals(getPackageName() + "/.services.CustomAccessibilityService")) {
                 isServiceEnabled = true;
                 break;
             }
+
         }
 
         if (!isServiceEnabled) {
