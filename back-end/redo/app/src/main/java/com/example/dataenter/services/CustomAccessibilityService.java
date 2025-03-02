@@ -2,7 +2,6 @@ package com.example.dataenter.services;
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
 import com.example.dataenter.prompttools.UnlockReceiver;
@@ -19,15 +18,21 @@ public class CustomAccessibilityService extends AccessibilityService {
         SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         for (PackageNameEnum packageNameEnum : PackageNameEnum.values()) {
             if (packageName.equals(packageNameEnum.getPackageName()) && sharedPreferences.getBoolean(packageNameEnum.name(), true)) {
-                // Pass the context to UnlockReceiver to initialize unlockTiming
-                triggeredBy = packageName;
-
-                UnlockReceiver unlockReceiver = new UnlockReceiver(this);
-                if (unlockReceiver.getUnlockTiming().unlockChecks()) {
-                    unlockReceiver.showNotification(this);
-                }
+                triggerUnlockReceiver(packageName);
                 break;
             }
+            if(packageName.contains(packageNameEnum.getPackageName())){
+                triggerUnlockReceiver(packageName);
+                break;
+            }
+        }
+    }
+
+    private void triggerUnlockReceiver(String packageName) {
+        triggeredBy = packageName;
+        UnlockReceiver unlockReceiver = new UnlockReceiver(this);
+        if (unlockReceiver.getUnlockTiming().unlockChecks()) {
+            unlockReceiver.showNotification(this);
         }
     }
 

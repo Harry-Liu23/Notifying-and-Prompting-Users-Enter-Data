@@ -64,6 +64,11 @@ public class SettingsFragment extends Fragment {
             String endTime = endTimeSpinner.getSelectedItem().toString();
             String interval = intervalSpinner.getSelectedItem().toString();
 
+            if (!isValidTimeRange(startTime, endTime)) {
+                Toast.makeText(requireContext(), "End time must be at least 8 hours after start time!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             // Save settings to SharedPreferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("startTime", startTime);
@@ -78,6 +83,13 @@ public class SettingsFragment extends Fragment {
         selectAppsButton.setOnClickListener(v -> showAppSelectionDialog());
 
         return root;
+    }
+
+    private boolean isValidTimeRange(String startTime, String endTime) {
+        int startHour = Integer.parseInt(startTime.split(":" )[0]);
+        int endHour = Integer.parseInt(endTime.split(":" )[0]);
+
+        return (endHour - startHour) >= 8 || (endHour + 24 - startHour) >= 8;
     }
 
     private void showAppSelectionDialog() {

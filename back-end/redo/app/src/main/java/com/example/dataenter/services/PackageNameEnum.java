@@ -12,7 +12,12 @@ package com.example.dataenter.services;
         TWITTER("com.twitter.android"),
         REDnote("com.xingin.xhs"),
         SHEIN("com.zzkko"),
-        FACEBOOK("com.facebook.katana");
+        FACEBOOK("com.facebook.katana"),
+        XIAOHONGSHU("com.xingin.xhs"),
+        CLOUDMUSIC("cloudmusic"),
+        APPLEMUSIC("apple"),
+        BILIBILI("bilibili"),
+        WECHAT("tencent");
 
 
         private String packageName;
