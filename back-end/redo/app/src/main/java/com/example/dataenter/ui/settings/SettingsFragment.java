@@ -23,6 +23,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.dataenter.R;
+import com.example.dataenter.prompttools.NotificationScheduler;
 import com.example.dataenter.services.PackageNameEnum;
 
 import java.util.ArrayList;
@@ -77,6 +78,8 @@ public class SettingsFragment extends Fragment {
             editor.apply();
 
             Toast.makeText(requireContext(), "Settings saved!", Toast.LENGTH_SHORT).show();
+
+            NotificationScheduler.scheduleNextNotification(requireContext());
             saveSettingsAndNavigate();
         });
 

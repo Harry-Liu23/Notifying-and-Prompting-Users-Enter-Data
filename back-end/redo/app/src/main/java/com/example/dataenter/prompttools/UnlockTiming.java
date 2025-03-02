@@ -1,59 +1,58 @@
 package com.example.dataenter.prompttools;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
-
-import java.util.Calendar;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class UnlockTiming {
     private static final String TAG = "UnlockTiming";
     private Context context;
-    private String userCustomPeriod; // Expected format "HH:mm", e.g., "10:00" for absolute time
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private int intervalMinutes;
+    private static final String PREFS_NAME = "AppPreferences";
+    private static final String LAST_NOTIFICATION_TIME = "LastNotificationTime";
 
-    public UnlockTiming(Context context, String userCustomPeriod) {
+    public UnlockTiming(Context context) {
         this.context = context;
-        this.userCustomPeriod = userCustomPeriod;
+        loadSettings();
     }
 
-    /**
-     * Checks if the current time is at or after the scheduled notification time (e.g., 10:00)
-     * and if a notification hasn't been sent yet today.
-     * If yes, updates the last notification time and returns true; otherwise, returns false.
-     */
-    public boolean unlockChecks() {
-        Calendar now = Calendar.getInstance();
-        int nowDay = now.get(Calendar.DAY_OF_YEAR);
-        int nowHour = now.get(Calendar.HOUR_OF_DAY);
-        int nowMinute = now.get(Calendar.MINUTE);
+    private void loadSettings() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        this.startTime = LocalTime.parse(sharedPreferences.getString("startTime", "10:00"), DateTimeFormatter.ofPattern("HH:mm"));
+        this.endTime = LocalTime.parse(sharedPreferences.getString("endTime", "22:00"), DateTimeFormatter.ofPattern("HH:mm"));
+        String interval = sharedPreferences.getString("interval", "02:00");
+        String[] parts = interval.split(":");
+        this.intervalMinutes = Integer.parseInt(parts[0]) * 60 + Integer.parseInt(parts[1]); // Convert HH:mm to minutes
+    }
 
-        int targetHour;
-        int targetMinute;
-        try {
-            String[] parts = userCustomPeriod.split(":");
-            targetHour = Integer.parseInt(parts[0]);
-            targetMinute = Integer.parseInt(parts[1]);
-        } catch (Exception e) {
-            Log.w(TAG, "Error parsing userCustomPeriod, defaulting to 10:00", e);
-            targetHour = 10;
-            targetMinute = 0;
+    public LocalTime getNextNotificationTime(LocalTime currentTime) {
+        LocalTime lastNotified = getLastNotificationTime();
+        if (lastNotified == null || lastNotified.isBefore(startTime)) {
+            return startTime;
         }
 
-        // Check if current time is at or after the target time.
-        if (nowHour > targetHour || (nowHour == targetHour && nowMinute >= targetMinute)) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("AppPreferences", MODE_PRIVATE);
-            long lastNotificationMillis = sharedPreferences.getLong("lastNotificationTime", 0);
-            Calendar lastNoti = Calendar.getInstance();
-            lastNoti.setTimeInMillis(lastNotificationMillis);
-            int lastDay = lastNoti.get(Calendar.DAY_OF_YEAR);
-            // If no notification has been sent today, send one.
-            if (lastNotificationMillis == 0 || lastDay != nowDay) {
-                sharedPreferences.edit().putLong("lastNotificationTime", now.getTimeInMillis()).apply();
-                return true;
-            }
+        // Calculate next interval time
+        LocalTime nextTime = lastNotified.plusMinutes(intervalMinutes);
+        if (nextTime.isAfter(endTime)) {
+            return null; // No more notifications for the day
         }
-        return false;
+
+        return nextTime;
+    }
+
+    public void saveLastNotificationTime(LocalTime time) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(LAST_NOTIFICATION_TIME, time.toString());
+        editor.apply();
+    }
+
+    private LocalTime getLastNotificationTime() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String timeStr = sharedPreferences.getString(LAST_NOTIFICATION_TIME, null);
+        return timeStr == null ? null : LocalTime.parse(timeStr, DateTimeFormatter.ofPattern("HH:mm"));
     }
 }

@@ -120,8 +120,6 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         // Register the unlock receiver
         IntentFilter filter = new IntentFilter();
-        filter.addAction(Intent.ACTION_USER_PRESENT);
-        filter.addAction(Intent.ACTION_SCREEN_ON);
         registerReceiver(unlockReceiver, filter);
     }
 
