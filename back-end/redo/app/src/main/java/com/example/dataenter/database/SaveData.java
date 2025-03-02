@@ -1,6 +1,5 @@
 package com.example.dataenter.database;
 
-import static com.example.dataenter.services.CustomAccessibilityService.triggeredBy;
 import static com.example.dataenter.ui.home.HomeFragment.moodProgress;
 
 import com.example.dataenter.MainActivity;
@@ -21,29 +20,28 @@ public class SaveData {
     }
 
     public void saveButton() {
-            EditText waterInput = mainActivity.findViewById(R.id.water_input);
-            EditText calorieInput = mainActivity.findViewById(R.id.calorie_input);
-            Button saveButton = mainActivity.findViewById(R.id.save_button);
+        EditText waterInput = mainActivity.findViewById(R.id.water_input);
+        EditText calorieInput = mainActivity.findViewById(R.id.calorie_input);
+        Button saveButton = mainActivity.findViewById(R.id.save_button);
 
-            saveButton.setOnClickListener(view -> {
-                String mood = getMoodText(moodProgress);
-                String water = waterInput.getText().toString().trim();
-                String calorie = calorieInput.getText().toString().trim();
+        saveButton.setOnClickListener(view -> {
+            String mood = getMoodText(moodProgress);
+            String water = waterInput.getText().toString().trim();
+            String calorie = calorieInput.getText().toString().trim();
 
-                if (mood.isEmpty() || water.isEmpty() || calorie.isEmpty()) {
-                    Toast.makeText(mainActivity, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            if (mood.isEmpty() || water.isEmpty() || calorie.isEmpty()) {
+                Toast.makeText(mainActivity, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            } else {
+                boolean isInserted = databaseHelper.insertRecord(mood, water, calorie);
+                if (isInserted) {
+                    Toast.makeText(mainActivity, "Record saved successfully", Toast.LENGTH_SHORT).show();
+                    waterInput.setText("");
+                    calorieInput.setText("");
                 } else {
-                    boolean isInserted = databaseHelper.insertRecord(mood, water, calorie);
-                    if (isInserted) {
-                        Toast.makeText(mainActivity, "Record saved successfully", Toast.LENGTH_SHORT).show();
-                        waterInput.setText("");
-                        calorieInput.setText("");
-                        triggeredBy = "no";
-                    } else {
-                        Toast.makeText(mainActivity, "Failed to save record", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(mainActivity, "Failed to save record", Toast.LENGTH_SHORT).show();
                 }
-            });
+            }
+        });
     }
 
     public static String getMoodText(int progress) {
@@ -56,5 +54,4 @@ public class SaveData {
             default: return "Unknown";
         }
     }
-
 }

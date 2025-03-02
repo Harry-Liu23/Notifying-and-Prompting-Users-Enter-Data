@@ -26,10 +26,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.dataenter.databinding.ActivityMainBinding;
-import com.example.dataenter.services.CustomAccessibilityService;
 import com.example.dataenter.services.ForegroundService;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -117,29 +114,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void checkAndEnableAccessibilityService() {
-        AccessibilityManager am = (AccessibilityManager) getSystemService(Context.ACCESSIBILITY_SERVICE);
-        List<AccessibilityServiceInfo> enabledServices = am.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_ALL_MASK);
-
-        boolean isServiceEnabled = false;
-        for (AccessibilityServiceInfo service : enabledServices) {
-            Log.d("AccessibilityService", "Service ID: " + service.getId());
-            Log.d("AccessibilityService", getPackageName());
-            if (service.getResolveInfo().serviceInfo.name.equals(CustomAccessibilityService.class.getName())||
-                    service.getId().equals(getPackageName() + "/.services.CustomAccessibilityService")) {
-                isServiceEnabled = true;
-                break;
-            }
-
-        }
-
-        if (!isServiceEnabled) {
-            // If not enabled, prompt the user to enable it
-            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-            startActivity(intent);
-            Toast.makeText(this, "Please enable the Custom Accessibility Service", Toast.LENGTH_LONG).show();
-        }
-    }
 
     @Override
     protected void onResume() {
@@ -149,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
         filter.addAction(Intent.ACTION_USER_PRESENT);
         filter.addAction(Intent.ACTION_SCREEN_ON);
         registerReceiver(unlockReceiver, filter);
-        checkAndEnableAccessibilityService();
     }
 
     @Override

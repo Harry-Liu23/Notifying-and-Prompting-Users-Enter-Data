@@ -1,10 +1,8 @@
 package com.example.dataenter.database;
 
-import static com.example.dataenter.prompttools.UnlockReceiver.lastNotificationTime;
-import static com.example.dataenter.services.CustomAccessibilityService.triggeredBy;
-
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -24,11 +22,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_WATER = "water";
     public static final String COLUMN_CALORIE = "calorie";
     public static final String COLUMN_DATA_ENTRY_TIME = "data_entry_time";
-    public static final String COLUMN_NOTIFICATION_TIME = "notification_time";
-    public static final String COLUMN_TRIGGERED_BY = "triggered_by";
+
+    // Save the context so we can later access SharedPreferences.
+    private Context context;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -38,9 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_MOOD + " TEXT, " +
                 COLUMN_WATER + " INTEGER, " +
                 COLUMN_CALORIE + " INTEGER, " +
-                COLUMN_DATA_ENTRY_TIME + " TEXT, " +
-                COLUMN_NOTIFICATION_TIME + " TEXT, " +
-                COLUMN_TRIGGERED_BY + " TEXT)";
+                COLUMN_DATA_ENTRY_TIME + " TEXT )";
         db.execSQL(createTable);
     }
 
@@ -49,8 +47,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.e("Upgrade check", "DB upgraded!");
         if (oldVersion < 6) {
             ensureColumnExists(db, COLUMN_DATA_ENTRY_TIME);
-            ensureColumnExists(db, COLUMN_NOTIFICATION_TIME);
-            ensureColumnExists(db, COLUMN_TRIGGERED_BY);
         }
     }
 
@@ -65,11 +61,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 }
             }
             if (!columnExists) {
-                db.execSQL("ALTER TABLE " + DatabaseHelper.TABLE_NAME + " ADD COLUMN " + columnName + " " + "TEXT");
+                db.execSQL("ALTER TABLE " + DatabaseHelper.TABLE_NAME + " ADD COLUMN " + columnName + " TEXT");
             }
         }
     }
-
 
     public boolean insertRecord(String mood, String water, String calorie) {
         Log.e("Data version", String.valueOf(DATABASE_VERSION));
@@ -79,10 +74,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_WATER, water);
         contentValues.put(COLUMN_CALORIE, calorie);
 
-        String entryTime = new SimpleDateFormat("MM-dd HH:mm:ss", Locale.getDefault()).format(System.currentTimeMillis());
+        // Save current data entry time.
+        String entryTime = new SimpleDateFormat("MM-dd HH:mm:ss", Locale.getDefault())
+                .format(System.currentTimeMillis());
         contentValues.put(COLUMN_DATA_ENTRY_TIME, entryTime);
-        contentValues.put(COLUMN_NOTIFICATION_TIME, lastNotificationTime);
-        contentValues.put(COLUMN_TRIGGERED_BY, triggeredBy);
+
+        // Retrieve the last notification time from SharedPreferences (as stored by UnlockTiming)
+        SharedPreferences sp = context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
+        long lastNotifMillis = sp.getLong("lastNotificationTime", 0);
+
 
         long result = db.insert(TABLE_NAME, null, contentValues);
         db.close();
@@ -101,13 +101,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd", Locale.getDefault());
         String currentDate = sdf.format(System.currentTimeMillis());
 
-        // Modify query to ensure it checks for exact format used in COLUMN_NOTIFICATION_TIME
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT SUM(water) FROM " + TABLE_NAME +
                 " WHERE substr(" + COLUMN_DATA_ENTRY_TIME + ", 1, 5) = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{currentDate});
-
-        return cursor;
+        return db.rawQuery(query, new String[]{currentDate});
     }
 
     public Cursor getAllRecords() {

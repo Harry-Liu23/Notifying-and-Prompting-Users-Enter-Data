@@ -16,31 +16,13 @@ import androidx.core.app.NotificationCompat;
 import com.example.dataenter.R;
 import com.example.dataenter.dialogs.EnterDataActivity;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 public class UnlockReceiver extends BroadcastReceiver {
 
     private static final String TAG = "UnlockReceiver";
-    public UnlockTiming unlockTiming;
-    public static String lastNotificationTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault())
-            .format(System.currentTimeMillis());
+    private UnlockTiming unlockTiming;
 
     public UnlockReceiver() {
         // Default constructor
-    }
-
-    public UnlockReceiver(Context context) {
-        // Initialize UnlockTiming using SharedPreferences
-        SharedPreferences sharedPreferences = context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
-        String interval = sharedPreferences.getString("interval", "02:00"); // Default 2 hours
-        String startTime = sharedPreferences.getString("startTime", "08:00"); // Default 8:00
-        String endTime = sharedPreferences.getString("endTime", "22:00"); // Default 22:00
-        this.unlockTiming = new UnlockTiming(context, interval, startTime, endTime);
-    }
-
-    public UnlockTiming getUnlockTiming() {
-        return unlockTiming;
     }
 
     @Override
@@ -48,20 +30,18 @@ public class UnlockReceiver extends BroadcastReceiver {
         if (Intent.ACTION_USER_PRESENT.equals(intent.getAction())) {
             Log.d(TAG, "User unlocked the screen");
 
-
-            // Load settings from SharedPreferences
+            // Initialize unlockTiming if not already done.
             if (unlockTiming == null) {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
-                String interval = sharedPreferences.getString("interval", "02:00"); // Default 2 hours
-                String startTime = sharedPreferences.getString("startTime", "08:00"); // Default 8:00
-                String endTime = sharedPreferences.getString("endTime", "22:00"); // Default 22:00
-                unlockTiming = new UnlockTiming(context, interval, startTime, endTime);
+                String scheduledTime = sharedPreferences.getString("interval", "10:00"); // Using "10:00" as the default scheduled time.
+                unlockTiming = new UnlockTiming(context, scheduledTime);
             }
+
             if (unlockTiming.unlockChecks()) {
-                Log.d(TAG, "Notification allowed within the time constraints");
+                Log.d(TAG, "Scheduled time reached; sending notification");
                 showNotification(context);
             } else {
-                Log.d(TAG, "Notification skipped due to time constraints");
+                Log.d(TAG, "Notification not sent: scheduled time not reached or already sent today");
             }
         }
     }
@@ -70,7 +50,7 @@ public class UnlockReceiver extends BroadcastReceiver {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        // Create Notification Channel (API 26+)
+        // Create Notification Channel for API 26+.
         String CHANNEL_ID = "UNLOCK_NOTIFICATION_CHANNEL";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
@@ -98,9 +78,6 @@ public class UnlockReceiver extends BroadcastReceiver {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
                 .build();
-
-        lastNotificationTime = new SimpleDateFormat("MM-dd HH:mm:ss", Locale.getDefault())
-                .format(System.currentTimeMillis());
 
         notificationManager.notify(2, notification);
     }

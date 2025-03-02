@@ -1,7 +1,6 @@
 package com.example.dataenter.dialogs;
 
 import static com.example.dataenter.database.SaveData.getMoodText;
-import static com.example.dataenter.services.CustomAccessibilityService.triggeredBy;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -68,7 +67,6 @@ public class EnterDataActivity extends Activity {
                     Toast.makeText(this, "Failed to save record", Toast.LENGTH_SHORT).show();
                 }
             }
-            triggeredBy = "no";
             dialog.dismiss();
         });
 

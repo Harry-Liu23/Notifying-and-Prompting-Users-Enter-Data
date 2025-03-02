@@ -79,8 +79,6 @@ public class SettingsFragment extends Fragment {
             Toast.makeText(requireContext(), "Settings saved!", Toast.LENGTH_SHORT).show();
             saveSettingsAndNavigate();
         });
-        Button selectAppsButton = root.findViewById(R.id.select_apps_button);
-        selectAppsButton.setOnClickListener(v -> showAppSelectionDialog());
 
         return root;
     }
@@ -91,48 +89,6 @@ public class SettingsFragment extends Fragment {
 
         return (endHour - startHour) >= 8 || (endHour + 24 - startHour) >= 8;
     }
-
-    private void showAppSelectionDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setTitle("Select Apps for Notifications");
-
-        // Create a vertical LinearLayout to hold CheckBoxes
-        LinearLayout layout = new LinearLayout(requireContext());
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(50, 40, 50, 20);
-        layout.setGravity(Gravity.CENTER);
-
-        // Get the list of app names from the enum
-        PackageNameEnum[] apps = PackageNameEnum.values();
-        CheckBox[] checkBoxes = new CheckBox[apps.length];
-
-        // SharedPreferences to load saved preferences
-        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
-
-        for (int i = 0; i < apps.length; i++) {
-            CheckBox checkBox = new CheckBox(requireContext());
-            checkBox.setText(apps[i].name());
-            checkBox.setChecked(sharedPreferences.getBoolean(apps[i].name(), true));
-            layout.addView(checkBox);
-            checkBoxes[i] = checkBox;
-        }
-
-        builder.setView(layout);
-
-        builder.setPositiveButton("Save", (dialog, which) -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            for (int i = 0; i < apps.length; i++) {
-                editor.putBoolean(apps[i].name(), checkBoxes[i].isChecked());
-            }
-            editor.apply();
-            Toast.makeText(requireContext(), "App selections saved!", Toast.LENGTH_SHORT).show();
-        });
-
-        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
-
-        builder.create().show();
-    }
-
 
     private void setSpinnerSelection(Spinner spinner, String value) {
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinner.getAdapter();

@@ -41,18 +41,6 @@
 
         <!-- Services for background tasks -->
         <service android:name=".services.ForegroundService" android:foregroundServiceType="dataSync" android:exported="false"/>
-        <service
-            android:name=".services.CustomAccessibilityService"
-            android:exported="false"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/accessibility_service_config" />
-        </service>
-
 
 
         <!-- FileProvider for file sharing -->

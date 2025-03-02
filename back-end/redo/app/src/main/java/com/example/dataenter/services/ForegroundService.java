@@ -72,7 +72,7 @@ public class ForegroundService extends Service {
         return new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle("Unlock Notification Service")
-                .setContentText("The service is running to detect screen unlocks")
+                .setContentText("The service is running to check on time for reminders")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .build();
     }
