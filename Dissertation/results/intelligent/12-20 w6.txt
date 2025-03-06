@@ -1,0 +1,50 @@
+ID: 1, Mood: Neutral, Water: 1000, Calorie: 680, Entry Time: 02-18 13:27:10, Notification Time: 02-18 13:26:30, Triggered By: no
+ID: 2, Mood: Neutral, Water: 500, Calorie: 0, Entry Time: 02-18 14:04:32, Notification Time: 02-18 14:04:16, Triggered By: com.bilibili.app.in
+ID: 3, Mood: Neutral, Water: 0, Calorie: 300, Entry Time: 02-18 16:09:22, Notification Time: 02-18 16:09:08, Triggered By: no
+ID: 4, Mood: Neutral, Water: 200, Calorie: 600, Entry Time: 02-18 18:00:57, Notification Time: 02-18 18:00:32, Triggered By: com.tencent.androidqqmail
+ID: 5, Mood: Happy, Water: 600, Calorie: 200, Entry Time: 02-19 13:38:36, Notification Time: 02-19 13:10:44, Triggered By: com.bilibili.app.in
+ID: 6, Mood: Neutral, Water: 400, Calorie: 350, Entry Time: 02-19 15:12:23, Notification Time: 02-19 15:11:44, Triggered By: com.tencent.androidqqmail  
+ID: 7, Mood: Happy,   Water: 300, Calorie: 150, Entry Time: 02-19 17:20:09, Notification Time: 02-19 17:19:31, Triggered By: com.bilibili.app.in  
+ID: 8, Mood: Neutral, Water: 0,   Calorie: 400, Entry Time: 02-19 19:05:09, Notification Time: 02-19 19:04:26, Triggered By: no  
+ID: 9, Mood: Neutral, Water: 500, Calorie: 600, Entry Time: 02-20 13:12:01, Notification Time: 02-20 12:12:40, Triggered By: com.tencent.androidqqmail
+ID: 10, Mood: Happy,   Water: 500, Calorie: 600, Entry Time: 02-20 15:10:23, Notification Time: 02-20 15:09:54, Triggered By: com.bilibili.app.in  
+ID: 11, Mood: Neutral, Water: 250, Calorie: 300, Entry Time: 02-20 17:05:16, Notification Time: 02-20 17:04:43, Triggered By: com.tencent.androidqqmail  
+ID: 12, Mood: Neutral, Water: 600, Calorie: 200, Entry Time: 02-20 20:03:58, Notification Time: 02-20 19:01:41, Triggered By: com.tencent.androidqqmail
+ID: 13, Mood: Very Happy, Water: 300, Calorie: 200, Entry Time: 02-21 13:04:42, Notification Time: 02-21 12:15:04, Triggered By: no
+ID: 14, Mood: Neutral,    Water: 500, Calorie: 200, Entry Time: 02-21 14:45:13, Notification Time: 02-21 14:44:55, Triggered By: no  
+ID: 15, Mood: Very Happy, Water: 300, Calorie: 100, Entry Time: 02-21 16:30:08, Notification Time: 02-21 16:29:24, Triggered By: com.bilibili.app.in 
+ID: 16, Mood: Very Sad, Water: 200, Calorie: 200, Entry Time: 02-21 18:00:54, Notification Time: 02-21 18:00:13, Triggered By: com.tencent.androidqqmail
+ID: 17, Mood: Happy, Water: 1000, Calorie: 0, Entry Time: 02-22 12:35:24, Notification Time: 02-22 12:34:46, Triggered By: com.tencent.androidqqmail
+ID: 18, Mood: Happy, Water: 500, Calorie: 700, Entry Time: 02-22 15:04:08, Notification Time: 02-22 15:02:42, Triggered By: no
+ID: 19, Mood: Neutral, Water: 200, Calorie: 500, Entry Time: 02-22 16:50:01, Notification Time: 02-22 16:49:27, Triggered By: com.bilibili.app.in  
+ID: 20, Mood: Happy,   Water: 400, Calorie: 700, Entry Time: 02-22 19:30:03, Notification Time: 02-22 19:29:24, Triggered By: no  
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{ID} & \textbf{Reaction Presence} & \textbf{Time to Reaction} & \textbf{Notification Context} \\ \hline
+        1  & Yes & 00:00:40 & no \\ \hline
+        2  & Yes & 00:00:16 & com.bilibili.app.in \\ \hline
+        3  & Yes & 00:00:14 & no \\ \hline
+        4  & Yes & 00:00:25 & com.tencent.androidqqmail \\ \hline
+        5  & No  & 00:27:52 & com.bilibili.app.in \\ \hline
+        6  & Yes & 00:00:39 & com.tencent.androidqqmail \\ \hline
+        7  & Yes & 00:00:38 & com.bilibili.app.in \\ \hline
+        8  & Yes & 00:00:43 & no \\ \hline
+        9  & No  & 00:59:21 & com.tencent.androidqqmail \\ \hline
+        10 & Yes & 00:00:29 & com.bilibili.app.in \\ \hline
+        11 & Yes & 00:00:33 & com.tencent.androidqqmail \\ \hline
+        12 & No  & 01:02:17 & com.tencent.androidqqmail \\ \hline
+        13 & No  & 00:49:38 & no \\ \hline
+        14 & Yes & 00:00:18 & no \\ \hline
+        15 & Yes & 00:00:44 & com.bilibili.app.in \\ \hline
+        16 & Yes & 00:00:41 & com.tencent.androidqqmail \\ \hline
+        17 & Yes & 00:00:38 & com.tencent.androidqqmail \\ \hline
+        18 & Yes & 00:01:26 & no \\ \hline
+        19 & Yes & 00:00:34 & com.bilibili.app.in \\ \hline
+        20 & Yes & 00:00:39 & no \\ \hline
+    \end{tabular}
+    \caption{Extracted Data Table}
+\end{table}
+

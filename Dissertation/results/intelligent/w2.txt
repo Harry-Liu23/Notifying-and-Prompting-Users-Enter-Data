@@ -1,0 +1,49 @@
+ID: 1, Mood: Neutral, Water: 500, Calorie: 783, Entry Time: 02-17 16:54:36, Notification Time: 16:48:15, Triggered By: no
+ID: 2, Mood: Happy, Water: 1000, Calorie: 778, Entry Time: 02-17 23:44:02, Notification Time: 02-17 23:43:23, Triggered By: com.instagram.android
+ID: 3, Mood: Happy, Water: 2100, Calorie: 2600, Entry Time: 02-18 01:54:29, Notification Time: 02-18 00:47:02, Triggered By: no
+ID: 4, Mood: Happy, Water: 2500, Calorie: 2700, Entry Time: 02-18 03:45:49, Notification Time: 02-18 02:50:00, Triggered By: com.facebook.katana
+ID: 5, Mood: Happy, Water: 758, Calorie: 0, Entry Time: 02-18 18:09:52, Notification Time: 02-18 18:09:34, Triggered By: com.facebook.katana
+ID: 6, Mood: Very Happy, Water: 758, Calorie: 1000, Entry Time: 02-18 20:34:23, Notification Time: 02-18 20:29:53, Triggered By: com.facebook.katana
+ID: 7, Mood: Happy, Water: 2000, Calorie: 1900, Entry Time: 02-18 23:23:19, Notification Time: 02-18 23:22:31, Triggered By: com.facebook.katana
+ID: 8, Mood: Neutral, Water: 2550, Calorie: 2500, Entry Time: 02-19 02:52:52, Notification Time: 02-19 02:52:38, Triggered By: com.instagram.android
+ID: 9, Mood: Happy, Water: 500, Calorie: 800, Entry Time: 02-19 18:34:51, Notification Time: 02-19 18:02:59, Triggered By: com.facebook.katana
+ID: 10, Mood: Happy, Water: 1000, Calorie: 1500, Entry Time: 02-19 20:11:10, Notification Time: 02-19 20:10:40, Triggered By: com.facebook.katana
+ID: 11, Mood: Happy, Water: 2000, Calorie: 1800, Entry Time: 02-19 22:20:54, Notification Time: 02-19 22:15:37, Triggered By: com.facebook.katana
+ID: 12, Mood: Very Happy, Water: 3000, Calorie: 2500, Entry Time: 02-20 00:39:57, Notification Time: 02-20 00:38:21, Triggered By: com.facebook.katana
+ID: 13, Mood: Neutral, Water: 500, Calorie: 760, Entry Time: 02-20 18:11:12, Notification Time: 02-20 18:10:27, Triggered By: com.instagram.android
+ID: 14, Mood: Very Happy, Water: 2000, Calorie: 1650, Entry Time: 02-20 20:35:43, Notification Time: 02-20 20:30:36, Triggered By: com.facebook.katana
+ID: 15, Mood: Happy, Water: 2500, Calorie: 2000, Entry Time: 02-20 22:45:48, Notification Time: 02-20 22:40:39, Triggered By: com.facebook.katana
+ID: 16, Mood: Very Happy, Water: 3200, Calorie: 2550, Entry Time: 02-21 00:50:26, Notification Time: 02-21 00:49:12, Triggered By: com.facebook.katana
+ID: 17, Mood: Neutral, Water: 700, Calorie: 780, Entry Time: 02-21 18:30:29, Notification Time: 02-21 18:25:10, Triggered By: com.instagram.android
+ID: 18, Mood: Happy, Water: 1700, Calorie: 1430, Entry Time: 02-21 20:49:38, Notification Time: 02-21 20:48:31, Triggered By: com.facebook.katana
+ID: 19, Mood: Neutral, Water: 2500, Calorie: 1900, Entry Time: 02-21 23:37:12, Notification Time: 02-21 23:05:27, Triggered By: com.facebook.katana
+ID: 20, Mood: Very Happy, Water: 3400, Calorie: 2470, Entry Time: 02-22 01:30:46, Notification Time: 02-22 01:10:17, Triggered By: com.facebook.katana
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{ID} & \textbf{Reaction Presence} & \textbf{Time to Reaction} & \textbf{Notification Context} \\ \hline
+        1  & No  & 00:06:21 & no \\ \hline
+        2  & Yes & 00:00:39 & com.instagram.android \\ \hline
+        3  & No  & 01:07:27 & no \\ \hline
+        4  & No  & 00:55:49 & com.facebook.katana \\ \hline
+        5  & Yes & 00:00:18 & com.facebook.katana \\ \hline
+        6  & Yes & 00:04:30 & com.facebook.katana \\ \hline
+        7  & Yes & 00:00:48 & com.facebook.katana \\ \hline
+        8  & Yes & 00:00:14 & com.instagram.android \\ \hline
+        9  & No  & 00:31:52 & com.facebook.katana \\ \hline
+        10 & Yes & 00:00:30 & com.facebook.katana \\ \hline
+        11 & No  & 00:05:17 & com.facebook.katana \\ \hline
+        12 & Yes & 00:01:36 & com.facebook.katana \\ \hline
+        13 & Yes & 00:00:45 & com.instagram.android \\ \hline
+        14 & No  & 00:05:07 & com.facebook.katana \\ \hline
+        15 & No  & 00:05:09 & com.facebook.katana \\ \hline
+        16 & Yes & 00:01:14 & com.facebook.katana \\ \hline
+        17 & No  & 00:05:19 & com.instagram.android \\ \hline
+        18 & Yes & 00:01:07 & com.facebook.katana \\ \hline
+        19 & No  & 00:31:45 & com.facebook.katana \\ \hline
+        20 & No  & 00:20:29 & com.facebook.katana \\ \hline
+    \end{tabular}
+    \caption{Extracted Data Table}
+\end{table}

@@ -1,0 +1,53 @@
+11:06:23 sad 330ml 800 02.19
+13:30:43 neutral 0ml 00  02.19
+17:30:35 neutral 0ml 00 02.19
+19:00:29 happy 200ml 2100 02.19
+21:53 30 neutral 000ml 0 02.19
+
+10:05:36 neutral 000ml 0 02.18
+12:00:43 verysad 00ml 100 02.18
+14:17:48 neutral 000ml 0 02.18
+16:30:34 neutral 300ml 0 02.18
+
+10:06:33 neutral 180ml 0 02.19
+14:21:43 happy 300ml 0 02.19
+18:00:13 neutral 000ml 2000 2.19
+20:31:19 neutral 000ml 0 02.19
+
+10:05:53 neutral 300ml 0 02.18
+12:00:41 neutral 000ml 0 02.18
+14:02:34 neutral 000ml 0 02.18
+16:09:19 neutral 000ml 756 02.18
+
+10:00:33 neutral 000ml 0 02.18
+12:01:03 sad      150ml 1366 02.18
+16:07:33 sad      300ml 0 02.18
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{ID} & \textbf{Reaction Presence} & \textbf{Time to Reaction} \\ \hline
+        1  & No  & 00:06:23 \\ \hline
+        2  & No  & 00:30:43 \\ \hline
+        3  & No  & 00:30:35 \\ \hline
+        4  & Yes & 00:00:29 \\ \hline
+        5  & No  & 00:53:30 \\ \hline
+        6  & No  & 00:05:36 \\ \hline
+        7  & Yes & 00:00:43 \\ \hline
+        8  & No  & 00:17:48 \\ \hline
+        9  & No  & 00:30:34 \\ \hline
+        10 & No  & 00:06:33 \\ \hline
+        11 & No  & 00:21:43 \\ \hline
+        12 & Yes & 00:00:13 \\ \hline
+        13 & No  & 00:31:19 \\ \hline
+        14 & No  & 00:05:53 \\ \hline
+        15 & Yes & 00:00:41 \\ \hline
+        16 & Yes & 00:02:34 \\ \hline
+        17 & No  & 00:09:19 \\ \hline
+        18 & Yes & 00:00:33 \\ \hline
+        19 & Yes & 00:01:03 \\ \hline
+        20 & No  & 00:07:33 \\ \hline
+    \end{tabular}
+    \caption{Extracted Reaction Time Table}
+\end{table}

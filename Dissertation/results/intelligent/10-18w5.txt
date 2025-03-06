@@ -1,0 +1,43 @@
+ID: 1, Mood: Neutral, Water: 500, Calorie: 400, Entry Time: 02-03 10:11:36, Notification Time: 02-03 10:11:32, Triggered By: com.tencent.mm
+ID: 2, Mood: Neutral, Water: 500, Calorie: 400, Entry Time: 02-03 12:01:40, Notification Time: 02-03 12:01:24, Triggered By: com.tencent.mm
+ID: 3, Mood: Happy, Water: 600, Calorie: 800, Entry Time: 02-03 14:22:50, Notification Time: 02-03 14:22:31, Triggered By: com.tencent.mm
+ID: 4, Mood: Happy, Water: 600, Calorie: 800, Entry Time: 02-03 16:26:50, Notification Time: 02-03 16:26:31, Triggered By: com.tencent.mm
+ID: 5, Mood: Neutral, Water: 300, Calorie: 500, Entry Time: 02-04 11:19:44, Notification Time: 02-04 11:19:34, Triggered By: com.tencent.mm
+ID: 6, Mood: Happy, Water: 600, Calorie: 500, Entry Time: 02-04 12:44:39, Notification Time: 02-04 12:44:28, Triggered By: no
+ID: 7, Mood: Neutral, Water: 200, Calorie: 0, Entry Time: 02-04 15:01:35, Notification Time: 02-04 15:00:39, Triggered By: com.tencent.mm
+ID: 8, Mood: Happy, Water: 400, Calorie: 500, Entry Time: 02-05 10:09:20, Notification Time: 02-05 10:09:03, Triggered By: no
+ID: 9, Mood: Sad, Water: 900, Calorie: 800, Entry Time: 02-05 12:06:54, Notification Time: 02-05 12:06:37, Triggered By: com.tencent.mm
+ID: 10, Mood: Sad, Water: 1200, Calorie: 800, Entry Time: 02-05 14:42:25, Notification Time: 02-05 14:42:05, Triggered By: no
+ID: 11, Mood: Neutral, Water: 900, Calorie: 800, Entry Time: 02-05 16:20:56, Notification Time: 02-05 16:01:40, Triggered By: com.tencent.mm
+ID: 12, Mood: Happy, Water: 500, Calorie: 300, Entry Time: 02-06 11:47:19, Notification Time: 02-06 11:47:08, Triggered By: com.tencent.mm
+ID: 13, Mood: Happy, Water: 500, Calorie: 300, Entry Time: 02-06 12:07:38, Notification Time: 02-06 12:07:16, Triggered By: com.tencent.mm
+ID: 14, Mood: Neutral, Water: 500, Calorie: 600, Entry Time: 02-06 14:56:36, Notification Time: 02-06 14:56:21, Triggered By: com.tencent.mm
+ID: 15, Mood: Sad, Water: 600, Calorie: 300, Entry Time: 02-07 11:58:17, Notification Time: 02-07 11:58:04, Triggered By: no
+ID: 16, Mood: Neutral, Water: 500, Calorie: 800, Entry Time: 02-07 14:09:33, Notification Time: 02-07 14:09:15, Triggered By: no
+ID: 17, Mood: Sad, Water: 900, Calorie: 900, Entry Time: 02-07 15:27:45, Notification Time: 02-07 15:00:16, Triggered By: com.tencent.mm
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{ID} & \textbf{Reaction Presence} & \textbf{Time to Reaction} & \textbf{Notification Context} \\ \hline
+        1  & Yes & 00:00:04 & com.tencent.mm \\ \hline
+        2  & Yes & 00:00:16 & com.tencent.mm \\ \hline
+        3  & Yes & 00:00:19 & com.tencent.mm \\ \hline
+        4  & Yes & 00:00:19 & com.tencent.mm \\ \hline
+        5  & Yes & 00:00:10 & com.tencent.mm \\ \hline
+        6  & Yes & 00:00:11 & no \\ \hline
+        7  & Yes & 00:00:56 & com.tencent.mm \\ \hline
+        8  & Yes & 00:00:17 & no \\ \hline
+        9  & Yes & 00:00:17 & com.tencent.mm \\ \hline
+        10 & Yes & 00:00:20 & no \\ \hline
+        11 & No  & 00:19:16 & com.tencent.mm \\ \hline
+        12 & Yes & 00:00:11 & com.tencent.mm \\ \hline
+        13 & Yes & 00:00:22 & com.tencent.mm \\ \hline
+        14 & Yes & 00:00:15 & com.tencent.mm \\ \hline
+        15 & Yes & 00:00:13 & no \\ \hline
+        16 & Yes & 00:00:18 & no \\ \hline
+        17 & No  & 00:27:29 & com.tencent.mm \\ \hline
+    \end{tabular}
+    \caption{Extracted Data Table}
+\end{table}

@@ -1,0 +1,79 @@
+ID: 1, Mood: Sad, Water: 50, Calorie: 0, Entry Time: 02-03 08:39:59, Notification Time: 02-03 08:39:34, Triggered By: com.tencent.mm
+ID: 2, Mood: Neutral, Water: 200, Calorie: 10, Entry Time: 02-03 10:01:55, Notification Time: 02-03 10:01:42, Triggered By: com.tencent.mm
+ID: 3, Mood: Happy, Water: 500, Calorie: 250, Entry Time: 02-03 12:00:26, Notification Time: 02-03 12:00:01, Triggered By: com.netease.cloudmusic
+ID: 4, Mood: Sad, Water: 200, Calorie: 150, Entry Time: 02-03 16:46:51, Notification Time: 02-03 16:46:41, Triggered By: com.tencent.mm
+ID: 5, Mood: Neutral, Water: 300, Calorie: 50, Entry Time: 02-03 18:01:54, Notification Time: 02-03 18:01:43, Triggered By: com.tencent.mm
+ID: 6, Mood: Neutral, Water: 200, Calorie: 100, Entry Time: 02-03 20:05:10, Notification Time: 02-03 20:05:01, Triggered By: com.tencent.mm
+ID: 7, Mood: Very Sad, Water: 0, Calorie: 0, Entry Time: 02-04 07:34:23, Notification Time: 06:50:07, Triggered By: com.tencent.mm
+ID: 8, Mood: Neutral, Water: 200, Calorie: 300, Entry Time: 02-04 10:07:01, Notification Time: 02-04 10:06:02, Triggered By: com.tencent.mm
+ID: 9, Mood: Happy, Water: 200, Calorie: 180, Entry Time: 02-04 11:48:38, Notification Time: 10:50:42, Triggered By: com.tencent.mm
+ID: 10, Mood: Happy, Water: 0, Calorie: 50, Entry Time: 02-04 12:05:37, Notification Time: 02-04 12:04:42, Triggered By: com.tencent.mm
+ID: 11, Mood: Happy, Water: 200, Calorie: 0, Entry Time: 02-04 18:59:02, Notification Time: 18:58:42, Triggered By: no
+ID: 12, Mood: Neutral, Water: 300, Calorie: 600, Entry Time: 02-04 21:25:12, Notification Time: 02-04 21:24:59, Triggered By: com.tencent.mm
+ID: 13, Mood: Sad, Water: 200, Calorie: 200, Entry Time: 02-04 22:37:49, Notification Time: 02-04 21:24:59, Triggered By: com.tencent.mm
+ID: 14, Mood: Sad, Water: 0, Calorie: 0, Entry Time: 02-05 06:46:38, Notification Time: 23:39:34, Triggered By: com.tencent.mm
+ID: 15, Mood: Sad, Water: 200, Calorie: 200, Entry Time: 02-05 08:00:04, Notification Time: 07:59:43, Triggered By: no
+ID: 16, Mood: Sad, Water: 50, Calorie: 0, Entry Time: 02-05 08:17:11, Notification Time: 08:16:26, Triggered By: no
+ID: 17, Mood: Neutral, Water: 200, Calorie: 0, Entry Time: 02-05 11:44:01, Notification Time: 02-05 11:43:54, Triggered By: com.tencent.mm
+ID: 18, Mood: Sad, Water: 500, Calorie: 50, Entry Time: 02-05 15:54:28, Notification Time: 15:54:06, Triggered By: no
+ID: 19, Mood: Happy, Water: 200, Calorie: 50, Entry Time: 02-05 17:07:51, Notification Time: 02-05 17:07:44, Triggered By: com.tencent.mm
+ID: 20, Mood: Sad, Water: 500, Calorie: 80, Entry Time: 02-05 21:16:55, Notification Time: 21:16:36, Triggered By: no
+ID: 21, Mood: Neutral, Water: 100, Calorie: 200, Entry Time: 02-06 08:10:07, Notification Time: 02-06 08:09:58, Triggered By: com.tencent.mm
+ID: 22, Mood: Neutral, Water: 500, Calorie: 0, Entry Time: 02-06 11:19:08, Notification Time: 02-06 11:19:01, Triggered By: no
+ID: 23, Mood: Neutral, Water: 60, Calorie: 0, Entry Time: 02-06 12:00:46, Notification Time: 02-06 12:00:33, Triggered By: no
+ID: 24, Mood: Happy, Water: 20, Calorie: 200, Entry Time: 02-06 14:02:29, Notification Time: 02-06 14:02:21, Triggered By: no
+ID: 25, Mood: Sad, Water: 0, Calorie: 0, Entry Time: 02-05 16:20:44, Notification Time: 02-05 16:18:39, Triggered By: com.tencent.mm
+ID: 26, Mood: Very Sad, Water: 200, Calorie: 50, Entry Time: 02-07 07:22:50, Notification Time: 07:22:26, Triggered By: no
+ID: 27, Mood: Sad, Water: 200, Calorie: 20, Entry Time: 02-07 08:19:01, Notification Time: 08:18:21, Triggered By: no
+ID: 28, Mood: Neutral, Water: 500, Calorie: 1000, Entry Time: 02-07 12:25:38, Notification Time: 08:18:21, Triggered By: no
+ID: 29, Mood: Neutral, Water: 0, Calorie: 0, Entry Time: 02-07 12:34:01, Notification Time: 02-07 12:33:56, Triggered By: no
+ID: 30, Mood: Neutral, Water: 200, Calorie: 0, Entry Time: 02-07 14:13:16, Notification Time: 02-07 14:13:10, Triggered By: com.tencent.mm
+ID: 31, Mood: Sad, Water: 100, Calorie: 0, Entry Time: 02-07 16:28:13, Notification Time: 02-07 16:03:04, Triggered By: com.tencent.mm
+ID: 32, Mood: Happy, Water: 200, Calorie: 50, Entry Time: 02-07 18:48:42, Notification Time: 18:48:25, Triggered By: no
+ID: 33, Mood: Sad, Water: 0, Calorie: 0, Entry Time: 02-08 08:01:55, Notification Time: 02-08 08:01:50, Triggered By: com.tencent.mm
+ID: 34, Mood: Happy, Water: 0, Calorie: 0, Entry Time: 02-08 10:01:14, Notification Time: 02-08 10:01:09, Triggered By: com.tencent.mm
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{ID} & \textbf{Reaction Presence} & \textbf{Time to Reaction} & \textbf{Notification Context} \\ \hline
+        1  & Yes & 00:00:25 & com.tencent.mm \\ \hline
+        2  & Yes & 00:00:13 & com.tencent.mm \\ \hline
+        3  & Yes & 00:00:25 & com.netease.cloudmusic \\ \hline
+        4  & Yes & 00:00:10 & com.tencent.mm \\ \hline
+        5  & Yes & 00:00:11 & com.tencent.mm \\ \hline
+        6  & Yes & 00:00:09 & com.tencent.mm \\ \hline
+        7  & No  & 00:44:16 & com.tencent.mm \\ \hline
+        8  & Yes & 00:00:59 & com.tencent.mm \\ \hline
+        9  & No  & 00:57:56 & com.tencent.mm \\ \hline
+        10 & Yes & 00:00:55 & com.tencent.mm \\ \hline
+        11 & Yes & 00:00:20 & no \\ \hline
+        12 & Yes & 00:00:13 & com.tencent.mm \\ \hline
+        13 & No  & 01:12:50 & com.tencent.mm \\ \hline
+        14 & No  & 07:07:04 & com.tencent.mm \\ \hline
+        15 & Yes & 00:00:21 & no \\ \hline
+        16 & Yes & 00:00:45 & no \\ \hline
+        17 & Yes & 00:00:07 & com.tencent.mm \\ \hline
+        18 & Yes & 00:00:22 & no \\ \hline
+        19 & Yes & 00:00:07 & com.tencent.mm \\ \hline
+        20 & Yes & 00:00:19 & no \\ \hline
+        21 & Yes & 00:00:09 & com.tencent.mm \\ \hline
+        22 & Yes & 00:00:07 & no \\ \hline
+        23 & Yes & 00:00:13 & no \\ \hline
+        24 & Yes & 00:00:08 & no \\ \hline
+        25 & Yes & 00:02:05 & com.tencent.mm \\ \hline
+        26 & Yes & 00:00:24 & no \\ \hline
+        27 & Yes & 00:00:40 & no \\ \hline
+        28 & No  & 04:07:17 & no \\ \hline
+        29 & Yes & 00:00:05 & no \\ \hline
+        30 & Yes & 00:00:06 & com.tencent.mm \\ \hline
+        31 & No  & 00:25:09 & com.tencent.mm \\ \hline
+        32 & Yes & 00:00:17 & no \\ \hline
+        33 & Yes & 00:00:05 & com.tencent.mm \\ \hline
+        34 & Yes & 00:00:05 & com.tencent.mm \\ \hline
+    \end{tabular}
+    \caption{Extracted Data Table}
+\end{table}
+
