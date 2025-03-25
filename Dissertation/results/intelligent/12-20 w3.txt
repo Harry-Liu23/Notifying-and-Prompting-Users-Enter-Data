@@ -2,22 +2,18 @@ ID: 1, Mood: Neutral, Water: 000, Calorie: 500, Entry Time: 02-13 12:03:12, Noti
 ID: 2, Mood: Sad, Water: 300, Calorie: 0, Entry Time: 02-13 14:15:30, Notification Time: 02-13 14:10:22, Triggered By: com.instagram.android
 ID: 3, Mood: Very Happy, Water: 500, Calorie: 800, Entry Time: 02-13 17:08:45, Notification Time: 02-13 17:04:55, Triggered By: com.google.android.youtube
 ID: 4, Mood: Neutral, Water: 000, Calorie: 600, Entry Time: 02-13 19:18:53, Notification Time: 02-13 19:18:09, Triggered By: no
-
 ID: 5, Mood: Happy, Water: 900, Calorie: 700, Entry Time: 02-14 12:11:47, Notification Time: 02-14 12:07:15, Triggered By: com.discord
 ID: 6, Mood: Neutral, Water: 300, Calorie: 0, Entry Time: 02-14 14:19:23, Notification Time: 02-14 14:18:50, Triggered By: com.google.android.youtube
 ID: 7, Mood: Very Sad, Water: 500, Calorie: 900, Entry Time: 02-14 17:01:55, Notification Time: 02-14 17:00:45, Triggered By: com.discord
 ID: 8, Mood: Neutral, Water: 000, Calorie: 500, Entry Time: 02-14 19:15:22, Notification Time: 02-14 19:14:10, Triggered By: com.instagram.android
-
 ID: 9, Mood: Happy, Water: 300, Calorie: 800, Entry Time: 02-15 12:01:07, Notification Time: 02-15 12:00:15, Triggered By: com.google.android.youtube
 ID: 10, Mood: Sad, Water: 000, Calorie: 0, Entry Time: 02-15 14:13:33, Notification Time: 02-15 14:12:20, Triggered By: no
 ID: 11, Mood: Neutral, Water: 500, Calorie: 600, Entry Time: 02-15 17:11:50, Notification Time: 02-15 17:10:46, Triggered By: com.discord
 ID: 12, Mood: Very Happy, Water: 600, Calorie: 900, Entry Time: 02-15 19:16:45, Notification Time: 02-15 19:15:30, Triggered By: com.instagram.android
-
 ID: 13, Mood: Neutral, Water: 000, Calorie: 500, Entry Time: 02-16 12:11:55, Notification Time: 02-16 12:10:20, Triggered By: com.google.android.youtube
 ID: 14, Mood: Very Happy, Water: 300, Calorie: 0, Entry Time: 02-16 14:22:30, Notification Time: 02-16 14:15:15, Triggered By: no
 ID: 15, Mood: Happy, Water: 500, Calorie: 800, Entry Time: 02-16 16:59:12, Notification Time: 02-16 16:58:30, Triggered By: com.discord
 ID: 16, Mood: Neutral, Water: 000, Calorie: 600, Entry Time: 02-16 19:11:13, Notification Time: 02-16 19:10:47, Triggered By: com.instagram.android
-
 ID: 17, Mood: Sad, Water: 300, Calorie: 400, Entry Time: 02-17 12:11:33, Notification Time: 02-17 12:10:55, Triggered By: com.google.android.youtube
 ID: 18, Mood: Neutral, Water: 000, Calorie: 0, Entry Time: 02-17 14:18:47, Notification Time: 02-17 14:18:03, Triggered By: no
 ID: 19, Mood: Very Sad, Water: 500, Calorie: 700, Entry Time: 02-17 17:02:05, Notification Time: 02-17 16:59:53, Triggered By: com.discord
