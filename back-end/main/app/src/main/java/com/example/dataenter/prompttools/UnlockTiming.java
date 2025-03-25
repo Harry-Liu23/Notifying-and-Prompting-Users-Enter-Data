@@ -32,8 +32,8 @@ public class UnlockTiming {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             now = LocalDateTime.now();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-        return now.format(formatter);}
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+            return now.format(formatter);}
         Log.w(TAG, "Unable to retrieve current time");
         return null;
     }
