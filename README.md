@@ -4,7 +4,7 @@ This guide explains how to run this project built in Java using both Android Stu
 
 ---
 
-## ✅ 1. Using Android Studio (Recommended)
+## ✅ 1. Using Android Studio
 
 ### Steps:
 1. Open **Android Studio**.
@@ -13,39 +13,6 @@ This guide explains how to run this project built in Java using both Android Stu
 4. Start an emulator via `Tools > Device Manager` OR connect a real Android device.
 5. Click the green **Run ▶** button or press **Shift + F10**.
 6. Select your device if prompted. The app will launch automatically.
-
----
-
-## 🔧 2. Using the Command Line (Terminal)
-
-### Steps:
-
-#### ➤ Step 0: Use the APK that is already in the root directory
-You can skip step 1 if you use the APK in the root directory.
-
-In the case the APK doesn't work, then build one following the guidance in Step 1.
-
-#### ➤ Step 1: Build the APK
-```bash
-./gradlew assembleDebug
-```
-- This will output the APK in:
-  ```
-  app/build/outputs/apk/debug/app-debug.apk
-  ```
-
-#### ➤ Step 2: Install the APK on a device or emulator
-Make sure a device is connected (or an emulator is running), then run:
-```bash
-adb install -r app/build/outputs/apk/debug/app-debug.apk
-```
-
-#### ➤ Step 3: Launch the App (Optional)
-You can start the app from the terminal:
-```bash
-adb shell monkey -p com.your.package.name -c android.intent.category.LAUNCHER 1
-```
-Replace `com.your.package.name` with your actual package ID from `AndroidManifest.xml`.
 
 ---
 
